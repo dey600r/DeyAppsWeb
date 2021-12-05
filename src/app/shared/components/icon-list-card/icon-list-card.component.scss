@@ -1,0 +1,39 @@
+.info-image {
+    width: 90%;
+    min-width: 90%;
+    border-radius: 5%;
+}
+
+.shadow {
+    box-shadow: 1px 1px 7px #ddd;
+    margin: 0px;
+    padding: 5px 10px 5px 10px;
+    background-color: #eee;
+    border-radius: 1%;
+}
+
+.padding-card {
+    padding: 5px;
+}
+
+// .p-col *:nth-child(2n+1) {
+//     background-color: #eee;
+// }
+
+.align-center-card {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.align-start {
+    text-align: start;
+}
+
+.container-card {
+    width: 95%;
+}
+
+p {
+    text-align: center;
+}

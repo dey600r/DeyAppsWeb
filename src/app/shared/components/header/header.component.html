@@ -1,0 +1,11 @@
+<div class="header">
+    <div class="sub-header">
+        <h2>{{ 'COMMON.title' | translate }}</h2>
+        <p-tabMenu [model]="items" [activeItem]="selectedItem" class="menu-height">
+            <ng-template pTemplate="item" let-item let-i="index">
+                <em [class]="item.icon"></em>
+                <span style="padding-left: 4px;">{{ item.label }}</span>
+            </ng-template>
+        </p-tabMenu>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="p-col">
+    <div class="box">
+        <h3 class="shadow-title">{{ dataInfo.title | translate }}</h3>
+    </div>
+    <div *ngIf="dataInfo.icons.length > 0" class="box">
+        <div class="p-grid">
+            <div *ngFor="let icon of dataInfo.icons" class="p-col text-center">
+                <a *ngIf="icon.href!== ''" [href]="icon.href" target="_blank">
+                    <img [alt]="icon.alt" [src]="icon.icon" class="icon" [pTooltip]="icon.tooltip">
+                </a>
+                <img *ngIf="icon.href=== ''" [alt]="icon.alt" [src]="icon.icon" class="icon" [pTooltip]="icon.tooltip">
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <p>{{ dataInfo.description | translate }}</p>
+    </div>
+</div>

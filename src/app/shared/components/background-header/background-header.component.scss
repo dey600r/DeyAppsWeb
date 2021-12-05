@@ -1,0 +1,19 @@
+.product-item {
+    padding-top: 10px;
+    height: 55vw;
+    left: 0;
+    max-height: 80vh;
+    min-height: 240px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    z-index: -1;
+    margin-bottom: -40%;
+}
+
+.product-image {
+    width: 100%;
+    bottom: -50%;
+    margin: auto 0;
+    top: -50%;
+}

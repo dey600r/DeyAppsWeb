@@ -1,0 +1,39 @@
+.product-item {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: -70px;
+    left: calc(50% - 45px);
+    box-shadow: 2px 2px 4px #ddd;
+    background-color: white;
+}
+
+.item-developer {
+    border-radius: 10px;
+    padding: 1px;
+}
+
+.item-mtm {
+    border-radius: 50px;
+    padding: 0px;
+}
+
+.product-image {
+    width: 80px;
+    height: auto;
+    display: block;
+    padding: 0px;
+}
+
+@media (min-width: 765px) and (max-width: 4000px) {
+    .product-item {
+        width: 100px;
+        height: 100px;
+        top: -85px;
+        left: calc(50% - 50px);
+    }
+
+    .product-image {
+        width: 100px;
+    }
+}

@@ -1,0 +1,31 @@
+<div class="p-grid">
+    <div class="p-col">
+        <div class="box">
+            <h3 id="cardTitleApp" class="shadow-title">{{ dataInfo.title | translate }}</h3>
+        </div>
+        <div>
+            <p id="cardDescriptionApp" class="align-start">{{ dataInfo.description | translate }}</p>
+        </div>
+        <div class="align-center-card">
+            <div class="container-card" *ngFor="let data of dataInfo.listInfoCard; let i = index">
+                <div class="box shadow">
+                    <div class="p-grid padding-card">
+                        <div class="p-col-12 p-md-5 p-lg-5 center" *ngIf="i%2 === 0">
+                            <img [alt]="data.title" [src]="data.image" class="icon info-image">
+                        </div>
+                        <div class="p-col-12 p-md-7 p-lg-7 center">
+                            <div>
+                                <p class="text-center" style="margin: 0px;"><strong>{{ data.title | translate }}</strong></p>
+                                <p>{{ data.description | translate }}</p>
+                            </div>  
+                        </div>
+                        <div class="p-col-12 p-md-5 p-lg-5 center" *ngIf="i%2 !== 0">
+                            <img [alt]="data.title" [src]="data.image" class="icon info-image">
+                        </div>
+                    </div>
+                </div>
+                <div style="margin: 12px;"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+.header {
+    height: 88px;
+    background-color: var(--main-color);
+    position: fixed;
+    width: 100%;
+    z-index: 4000;
+}
+
+.sub-header {
+    padding-right: 5%;
+    padding-left: 5%;
+    width: 90%;
+    max-width: 1700px;
+    margin: 0 auto;
+}
+
+.header h2 {
+    padding-top: 11px;
+    color: var(--main-text-color);
+    margin: 0px;
+    text-align: center;
+    font-style: italic;
+}
+
+.icon-mtm {
+    background-image: url(/assets/images/icons/icon.png);
+    background-size: cover;
+    display: block;
+    width: 22px;
+    height: 22px;
+}
+
+.menu-height {
+    max-height: 10px;
+}

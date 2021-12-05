@@ -1,0 +1,26 @@
+<div class="p-col">
+    <div class="box">
+        <h3 id="projectTitleApp" class="shadow-title">{{ dataInfo.title | translate }}</h3>
+    </div>
+    <div class="box">
+        <div class="p-grid shadow">
+            <div class="p-col-12 p-md-2 p-lg-2 center">
+                <img [alt]="dataInfo.infoIcon.alt" [src]="dataInfo.infoIcon.icon" class="icon icon-mtm">
+            </div>
+            <div class="p-col-12 p-md-8 p-lg-8 center">
+                <div>
+                    <p style="margin: 0px;"><strong>{{ dataInfo.infoDeveloper.title | translate }}</strong></p>
+                    <p>{{ dataInfo.infoDeveloper.description | translate }}</p>
+                </div>
+            </div>
+            <div class="p-col-12 p-md-2 p-lg-2 center">
+                <div class="p-grid center padding-grid-button">
+                    <div class="p-col-4 p-md-7 p-lg-7 center padding-buttons" *ngFor="let icon of dataInfo.infoDeveloper.icons">
+                        <button id="projectButton" pButton pRipple type="button" [icon]="icon.icon" [class]="'p-button-rounded ' + icon.styleClass"
+                            [pTooltip]="icon.tooltip" (click)="navigateTo(icon)"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

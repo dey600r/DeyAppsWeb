@@ -1,0 +1,40 @@
+.icon-mtm {
+    width: 91px;
+}
+
+.shadow {
+    box-shadow: 1px 1px 7px #ddd;
+    margin: 0px;
+    padding: 5px 10px 5px 10px;
+}
+
+.padding-buttons {
+    padding: 1px;
+}
+
+.padding-grid-button {
+    padding-top: 0px;
+}
+
+@media (min-width: 765px) and (max-width: 4000px) {
+    .padding-grid-button {
+        padding-top: 15px;
+    }
+}
+
+
+.button-gray {
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+    color: var(--main-text-selected-hover-color);
+}
+
+.button-gray:hover {
+    background-color: var(--main-selected-hover-color);
+    border: 1px solid var(--main-selected-hover-color);
+    color: var(--main-selected-color);
+}
+
+p {
+    text-align: center;
+}

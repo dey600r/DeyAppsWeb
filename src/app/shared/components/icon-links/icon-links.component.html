@@ -1,0 +1,7 @@
+<div class="product-item">
+    <div class="product-item-content">
+        <a *ngFor="let data of dataInfo" [href]="data.href" target="_blank">
+            <img [alt]="data.alt" class="product-image" [src]="data.icon">    
+        </a>
+    </div>
+</div>

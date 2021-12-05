@@ -1,0 +1,17 @@
+.product-item {
+
+    .product-item-content {
+        border-radius: 3px;
+        text-align: center;
+    }
+
+    .product-image {
+        width: 40%;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        max-width: 200px;
+        min-width: 110px;
+        cursor: pointer;
+    }
+}

@@ -27,7 +27,7 @@ export class IconCarouselComponent implements OnInit, OnChanges {
   ngOnChanges(): void {
     const pathImages: string = this.utilService.getPathMtMImages(this.dataInfo.type);
     this.picturesApp = [];
-    for (let i = 1; i < 11; i++) {
+    for (let i = 1; i < 12; i++) {
       this.picturesApp = [...this.picturesApp, {
         name: `Image${i}`,
         url: this.utilService.joinPath([pathImages, this.dataInfo.theme, `Capture${i}.png`]),

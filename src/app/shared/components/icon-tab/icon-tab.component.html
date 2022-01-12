@@ -5,7 +5,7 @@
             <span style="margin-left: 4px;">{{ tab.title }}</span>
         </ng-template>
         <div class="main-radio-button">
-            <div *ngFor="let theme of themes" class="p-field-checkbox child-radio-button">
+            <div *ngFor="let theme of themes" class="field-checkbox child-radio-button">
                 <p-radioButton [inputId]="theme.key" [value]="theme.value" [(ngModel)]="selectedTheme" (onClick)="changeInfoCarousel()"></p-radioButton>
                 <label [for]="theme.key">{{ 'COMMON.' + theme.value | translate }}</label>
             </div>

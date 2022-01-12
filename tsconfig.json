@@ -27,6 +27,6 @@
       "@components/*": ["src/app/shared/components/*"],
       "@utils/*": ["src/app/core/utils/*"],
       "@testing/*": ["src/testing/*"]
-    }
+    },
   }
 }

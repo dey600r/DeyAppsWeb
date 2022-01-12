@@ -97,9 +97,11 @@ li a.p-menuitem-link.p-ripple {
     border-width: 0 0 2px 0;
 }
 
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link,
 .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
     background: var(--main-color);
     color: var(--main-text-color);
+    border-color:  var(--main-text-color);
     padding: 0.8rem;
 }
 
@@ -109,8 +111,8 @@ li a.p-menuitem-link.p-ripple {
     color: var(--main-text-selected-hover-color);
 }
 
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
-    background: transparent;
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link.p-menuitem-link-active {
+    background: var(--main-color);
     border-color:  var(--main-selected-color);
     color: var(--main-selected-color);
 }
@@ -124,6 +126,27 @@ li a.p-menuitem-link.p-ripple {
 }
 
 /* CAROUSEL */
+
+app-icon-list-card button.p-ripple.p-element.p-carousel-next.p-link.ng-star-inserted,
+app-icon-list-card button.p-ripple.p-element.p-carousel-prev.p-link.ng-star-inserted,
+app-icon-list-card ul.p-carousel-indicators.p-reset.ng-star-inserted {
+    display: none;
+}
+
+app-icon-list-card .product-item-content .mb-3 {
+    margin-bottom: 0px !important;
+}
+
+app-icon-list-card .p-carousel-item.ng-star-inserted {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+app-icon-list-card .product-item.ng-star-inserted {
+    width: 100%;
+}
 
 /* PARA INTERNET EXPORER */
 .p-carousel-items-content {
@@ -200,3 +223,4 @@ h3 {
 p {
     line-height: 1.35em;
 }
+

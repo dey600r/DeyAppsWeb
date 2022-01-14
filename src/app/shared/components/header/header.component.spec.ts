@@ -6,6 +6,7 @@ import { SetupTest } from '@testing/index';
 
 import { HeaderComponent } from './header.component';
 import { Location } from '@angular/common';
+import { firstValueFrom } from 'rxjs';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -22,7 +23,7 @@ describe('HeaderComponent', () => {
       schemas: SetupTest.config.schemas
     }).compileComponents();
     translate = TestBed.inject(TranslateService);
-    await translate.use('es').toPromise();
+    await firstValueFrom(translate.use('es'));
   });
 
   beforeEach(() => {

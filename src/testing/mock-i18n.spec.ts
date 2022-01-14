@@ -35,7 +35,7 @@ export class MockTranslate {
             titleNotifications: 'Notificaciones',
             descriptionNotifications: 'The application allows you to define personalized maintenance for each of your vehicles. Based on these configurations, it notifies you how long and how many kilometers the parts of your vehicles have lived.',
             titleTechnologiesUsed: 'Technologies Used',
-            descriptionTechnologiesUsed: 'Multiplatform application for Android and Windows 10. Implemented with the Ionic 6 and Angular 11 frameworks. With the help of VS Code it has been possible to develop with the programming languages HTML5, CSS3, Typescript 4 and SQL.',
+            descriptionTechnologiesUsed: 'Multiplatform application for Android and Windows 10. Implemented with the Ionic 5.9 and Angular 13 frameworks. With the help of VS Code it has been possible to develop with the programming languages HTML5, CSS3, Typescript 4.5 and SQL.',
             descriptionMtMFree: 'The application is also available for free but with reduced functionality. Still with this version you can use the vehicle registration, operations, a wide range of configurations for maintenance and notifications. Using the complete application you could enjoy the calendar alerts, cost control and summary of maintenance and spare parts.'
         },
         POLICY_PRIVACY: {
@@ -121,7 +121,7 @@ export class MockTranslate {
             titleNotifications: 'Notificaciones',
             descriptionNotifications: 'La aplicación te permite definir mantenimientos personalizados para cada uno de tus vehículos. En base a estas configuraciones te notifica cuanto tiempo y kilómetros de vida tienen las piezas de tus vehículos.',
             titleTechnologiesUsed: 'Tecnologías utilizadas',
-            descriptionTechnologiesUsed: 'Aplicación multiplataforma para Android y Windows 10. Implementada con los frameworks Ionic 6 y Angular 11. Se han utilizado librerías o plugins como Cordova y Sqlite. Con la ayuda de VS Code se ha podido desarrollar con los lenguajes de programación HTML5, CSS3, Typescript 4 y SQL.',
+            descriptionTechnologiesUsed: 'Aplicación multiplataforma para Android y Windows 10. Implementada con los frameworks Ionic 5.9 y Angular 13. Se han utilizado librerías o plugins como Cordova y Sqlite. Con la ayuda de VS Code se ha podido desarrollar con los lenguajes de programación HTML5, CSS3, Typescript 4.5 y SQL.',
             descriptionMtMFree: 'La aplicación también está disponible gratuitamente pero con una funcionalidad reducida. Aún así con esta versión se puede utilizar el registro de vehículos, operaciones, una amplia gama de configuraciones para los mantenimientos y las notificaciones. Utilizando la aplicación completa se podría disfrutar de los avisos del calendario, control de gastos y resumen de mantenimientos y recambios.'
         },
         POLICY_PRIVACY: {

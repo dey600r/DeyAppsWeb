@@ -7,6 +7,7 @@ import { SetupTest } from '@testing/index';
 import { Constants } from '@utils/constants';
 import { environment } from '@environments/environment';
 import { InfoIconModel } from '@models/index';
+import { firstValueFrom } from 'rxjs';
 
 describe('UtilsService', () => {
   let service: UtilsService;
@@ -16,7 +17,7 @@ describe('UtilsService', () => {
     TestBed.configureTestingModule(SetupTest.config);
     service = TestBed.inject(UtilsService);
     translate = TestBed.inject(TranslateService);
-    await translate.use('es').toPromise();
+    await firstValueFrom(translate.use('es'));
   });
 
   it('should be created', () => {
@@ -36,7 +37,7 @@ describe('UtilsService', () => {
   });
 
   it('should be get path so - EN', async () => {
-    await translate.use('en').toPromise();
+    await firstValueFrom(translate.use('en'));
     const result1 = service.getPathMtMImages(Constants.TYPE_APP_ANDROID);
     expect(result1).toEqual(`./${environment.pathMtM}/en/${Constants.TYPE_APP_ANDROID}`);
     const result2 = service.getPathMtMImages(Constants.TYPE_APP_WINDOWS);

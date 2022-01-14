@@ -8,6 +8,7 @@ import { MockTranslate, SetupTest } from '@testing/index';
 
 import { IconProjectComponent } from './icon-project.component';
 import { Router } from '@angular/router';
+import { firstValueFrom } from 'rxjs';
 
 describe('IconProjectComponent', () => {
   let component: IconProjectComponent;
@@ -19,7 +20,7 @@ describe('IconProjectComponent', () => {
     await TestBed.configureTestingModule(SetupTest.config)
     .compileComponents();
     translate = TestBed.inject(TranslateService);
-    await translate.use('es').toPromise();
+    await firstValueFrom(translate.use('es'));
   });
 
   beforeEach(() => {
@@ -44,7 +45,7 @@ describe('IconProjectComponent', () => {
   });
 
   it('should show title project - EN', async () => {
-    await translate.use('en').toPromise();
+    await firstValueFrom(translate.use('en'));
     component.dataInfo = new InfoProjectModel('HOME.titleProjects',
     new InfoDeveloperModel(
       'COMMON.MTM_LARGE', 'HOME.descriptionProjects',

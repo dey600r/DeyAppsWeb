@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UtilsService } from '@app/core/services/utils.service';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from '@environments/environment';
-import { InfoDeveloperModel, InfoIconModel, InfoTabModel, InfoProjectCardModel, InfoThemeModel } from '@models/index';
+import { InfoDeveloperModel, InfoIconModel, InfoTabModel, InfoProjectCardModel, InfoThemeModel, PictureModel } from '@models/index';
 import { Constants } from '@utils/constants';
 import { InfoCardModel } from '@app/core/models/info-card.model';
 import { InfoBaseIconModel } from '@app/core/models/info-base.model';
@@ -36,13 +36,17 @@ export class InfoMtmComponent implements OnInit {
 
     this.infoListCard = new InfoProjectCardModel('COMMON.MTM_LARGE', 'HOME.descriptionLargeProjects', [
       new InfoCardModel('INFO_MTM.titleExpensesVehicles', 'INFO_MTM.descriptionExpensesVehicles',
-        this.utilService.joinPath([pathImages, 'info-mtm-expenses-vehicles.png'])),
+        [this.utilService.joinPath([pathImages, 'info-mtm-expenses-vehicles.png']),
+        this.utilService.joinPath([pathImages, 'info-mtm-expenses-operations.png'])]),
       new InfoCardModel('INFO_MTM.titleCalendar', 'INFO_MTM.descriptionCalendar',
-        this.utilService.joinPath([pathImages, 'info-mtm-calendar.png'])),
+        [this.utilService.joinPath([pathImages, 'info-mtm-calendar.png']),
+        this.utilService.joinPath([pathImages, 'info-mtm-calendar-day.png'])]),
       new InfoCardModel('INFO_MTM.titleExpensesReplacement', 'INFO_MTM.descriptionExpensesReplacement',
-        this.utilService.joinPath([pathImages, 'info-mtm-expenses-replacements.png'])),
+        [this.utilService.joinPath([pathImages, 'info-mtm-expenses-replacements.png']),
+        this.utilService.joinPath([pathImages, 'info-mtm-expenses-replacements-year.png'])]),
       new InfoCardModel('INFO_MTM.titleNotifications', 'INFO_MTM.descriptionNotifications',
-        this.utilService.joinPath([pathImages, 'info-mtm-notification.png']))
+        [this.utilService.joinPath([pathImages, 'info-mtm-notification.png']),
+        this.utilService.joinPath([pathImages, 'info-mtm-notification-chart.png'])])
     ]);
 
     const themes: InfoThemeModel[] = this.utilService.getMtMThemes();

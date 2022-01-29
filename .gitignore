@@ -28,7 +28,11 @@ dist
 node_modules
 .scannerwork
 .browserslistrc
+.angular
 .editorconfig
 .firebase/
 .firebaserc
 .gitignore
+
+package-lock.json
+www/index.html

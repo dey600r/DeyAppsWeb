@@ -7,6 +7,7 @@ import { SetupTest } from '@testing/index';
 
 import { IconCarouselComponent } from './icon-carousel.component';
 import { By } from '@angular/platform-browser';
+import { firstValueFrom } from 'rxjs';
 
 describe('IconCarouselComponent', () => {
   let component: IconCarouselComponent;
@@ -17,7 +18,7 @@ describe('IconCarouselComponent', () => {
     await TestBed.configureTestingModule(SetupTest.config)
     .compileComponents();
     translate = TestBed.inject(TranslateService);
-    await translate.use('es').toPromise();
+    await firstValueFrom(translate.use('es'));
   });
 
   beforeEach(() => {
@@ -47,7 +48,7 @@ describe('IconCarouselComponent', () => {
 
   it('should event click show modal dialog', () => {
     spyOn(component, 'showModalDialog');
-    const imageClick = fixture.debugElement.query(By.css('.p-mb-3'));
+    const imageClick = fixture.debugElement.query(By.css('.mb-3'));
     imageClick.triggerEventHandler('click', null);
     fixture.detectChanges();
     expect(component.showModalDialog).toHaveBeenCalled();

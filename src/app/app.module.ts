@@ -13,6 +13,7 @@ import { MainModule } from '@modules/main.module';
 import { environment } from '@environments/environment';
 import { LOCATION_INITIALIZED } from '@angular/common';
 import { Constants } from '@utils/constants';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,12 @@ import { Constants } from '@utils/constants';
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
     })
   ],
   providers: [

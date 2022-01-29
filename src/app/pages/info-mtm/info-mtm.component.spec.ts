@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateService } from '@ngx-translate/core';
 import { SetupTest, MockTranslate } from '@testing/index';
+import { firstValueFrom } from 'rxjs';
 
 import { InfoMtmComponent } from './info-mtm.component';
 
@@ -13,7 +14,7 @@ describe('InfoMtmComponent', () => {
     await TestBed.configureTestingModule(SetupTest.config)
     .compileComponents();
     translate = TestBed.inject(TranslateService);
-    await translate.use('es').toPromise();
+    await firstValueFrom(translate.use('es'));
   });
 
   beforeEach(() => {
@@ -27,7 +28,7 @@ describe('InfoMtmComponent', () => {
   });
 
   it('should create - EN', async () => {
-    await translate.use('en').toPromise();
+    await firstValueFrom(translate.use('en'));
     component.ngOnInit();
     fixture.detectChanges();
     expect(component).toBeTruthy();
@@ -41,7 +42,7 @@ describe('InfoMtmComponent', () => {
   });
 
   it('should translate Motor Track Description - EN', async () => {
-    await translate.use('en').toPromise();
+    await firstValueFrom(translate.use('en'));
     fixture.detectChanges();
     const title = fixture.debugElement.nativeElement.querySelector('#cardTitleApp');
     expect(title.innerHTML).toBe(MockTranslate.EN.COMMON.MTM_LARGE);

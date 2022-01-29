@@ -1,5 +1,5 @@
-<div class="p-grid">
-    <div class="p-col">
+<div class="grid">
+    <div class="col">
         <div class="box">
             <h3 id="cardTitleApp" class="shadow-title">{{ dataInfo.title | translate }}</h3>
         </div>
@@ -9,18 +9,40 @@
         <div class="align-center-card">
             <div class="container-card" *ngFor="let data of dataInfo.listInfoCard; let i = index">
                 <div class="box shadow">
-                    <div class="p-grid padding-card">
-                        <div class="p-col-12 p-md-5 p-lg-5 center" *ngIf="i%2 === 0">
-                            <img [alt]="data.title" [src]="data.image" class="icon info-image">
+                    <div class="grid padding-card">
+                        <div class="col-12 md:col-5 lg:col-5 center" *ngIf="i%2 === 0">
+                            <p-carousel [value]="data.images" [autoplayInterval]="(data.images.length > 1 ? 5000 : false)"
+                                circular="true" numVisible="1" numScroll="1">
+                                <ng-template let-pict pTemplate="item">
+                                    <div class="product-item">
+                                        <div class="product-item-content">
+                                            <div class="mb-3" (click)="showModalDialog(pict)">
+                                                <img [alt]="data.title" [src]="pict" class="icon info-image product-image">
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </ng-template>
+                            </p-carousel>
                         </div>
-                        <div class="p-col-12 p-md-7 p-lg-7 center">
+                        <div class="col-12 md:col-7 lg:col-7 center">
                             <div>
                                 <p class="text-center" style="margin: 0px;"><strong>{{ data.title | translate }}</strong></p>
                                 <p>{{ data.description | translate }}</p>
                             </div>  
                         </div>
-                        <div class="p-col-12 p-md-5 p-lg-5 center" *ngIf="i%2 !== 0">
-                            <img [alt]="data.title" [src]="data.image" class="icon info-image">
+                        <div class="col-12 md:col-5 lg:col-5 center" *ngIf="i%2 !== 0">
+                            <p-carousel [value]="data.images" [autoplayInterval]="(data.images.length > 1 ? 5000 : false)"
+                                circular="true" numVisible="1" numScroll="1">
+                                <ng-template let-pict pTemplate="item">
+                                    <div class="product-item">
+                                        <div class="product-item-content">
+                                            <div class="mb-3" (click)="showModalDialog(pict)">
+                                                <img [alt]="data.title" [src]="pict" class="icon info-image product-image">
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </ng-template>
+                            </p-carousel>
                         </div>
                     </div>
                 </div>

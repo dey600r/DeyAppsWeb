@@ -9,9 +9,9 @@ export class InfoProjectCardModel extends InfoBaseDescModel {
 }
 
 export class InfoCardModel extends InfoBaseDescModel {
-    image: string;
-    constructor(t: string = '', d: string = '', i: string = '') {
+    images: string[];
+    constructor(t: string = '', d: string = '', i: string[] = []) {
         super(t, d);
-        this.image = i;
+        this.images = i;
     }
 }

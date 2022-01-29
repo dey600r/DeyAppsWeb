@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateService } from '@ngx-translate/core';
 
 import { SetupTest } from '@testing/index';
+import { firstValueFrom } from 'rxjs';
 
 import { IconHeaderComponent } from './icon-header.component';
 
@@ -13,7 +14,7 @@ describe('IconHeaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule(SetupTest.config).compileComponents();
     translate = TestBed.inject(TranslateService);
-    await translate.use('es').toPromise();
+    await firstValueFrom(translate.use('es'));
   });
 
   beforeEach(() => {

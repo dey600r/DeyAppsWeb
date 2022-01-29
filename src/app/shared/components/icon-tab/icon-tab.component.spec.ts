@@ -7,6 +7,7 @@ import { IconTabComponent } from './icon-tab.component';
 import { UtilsService } from '@services/utils.service';
 import { InfoTabModel } from '@models/index';
 import { TranslateService } from '@ngx-translate/core';
+import { firstValueFrom } from 'rxjs';
 
 describe('IconTabComponent', () => {
   let component: IconTabComponent;
@@ -19,7 +20,7 @@ describe('IconTabComponent', () => {
     .compileComponents();
     utilsServices = TestBed.inject(UtilsService);
     translate = TestBed.inject(TranslateService);
-    await translate.use('es').toPromise();
+    await firstValueFrom(translate.use('es'));
   });
 
   beforeEach(() => {
@@ -44,7 +45,7 @@ describe('IconTabComponent', () => {
   });
 
   it('should translate title radiobutton - EN', async () => {
-    await translate.use('en').toPromise();
+    await firstValueFrom(translate.use('en'));
     fixture.detectChanges();
     const radioTitle = fixture.debugElement.nativeElement.querySelectorAll('label');
     expect(radioTitle[0].innerHTML).toBe(MockTranslate.EN.COMMON.light);

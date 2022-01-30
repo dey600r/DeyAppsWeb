@@ -1,10 +1,11 @@
 node {
-  tools {nodejs "NodeJS"}
   stage('SCM') {
     checkout scm
   }
   stage('Install') { 
-    sh 'npm install'
+    nodejs(nodeJSInstallationName: 'NodeJS') {
+        sh 'npm install'
+    }
   }
   stage('Build') { 
     sh 'ng test --code-coverage --watch=false'

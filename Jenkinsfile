@@ -3,14 +3,10 @@ node {
     checkout scm
   }
   stage('Install') { 
-    steps {
-        sh 'npm install' 
-    }
+    sh 'npm install'
   }
   stage('Build') { 
-    steps {
-        sh 'ng test --code-coverage --watch=false' 
-    }
+    sh 'ng test --code-coverage --watch=false'
   }
   stage('SonarQube Analysis') {
     def scannerHome = tool 'SonarScanner';

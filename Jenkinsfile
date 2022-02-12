@@ -14,4 +14,9 @@ node {
       sh "${scannerHome}/bin/sonar-scanner"
     }
   }
+  stage('Build Prod') { 
+    nodejs(nodeJSInstallationName: 'NodeJS') {
+      sh 'ng build --configuration=production'
+    }
+  }
 }

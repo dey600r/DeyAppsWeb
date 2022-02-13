@@ -19,7 +19,9 @@ node {
       sh 'ng build --configuration=production'
     }
   }
-  stage('Deploy') { 
-    sh 'scp -r * remote_nginx@nginx:/home/remote_nginx/www'
+  stage('Deploy') {
+    script {
+      sh 'scp -r * remote_nginx@nginx:/home/remote_nginx/www'
+    }
   }
 }

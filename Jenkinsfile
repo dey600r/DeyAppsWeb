@@ -17,10 +17,6 @@ node {
   stage('Build Prod') { 
     nodejs(nodeJSInstallationName: 'NodeJS') {
       sh 'ng build --configuration=production'
-    }
-  }
-  stage('Deploy') {
-    nodejs() {
       sh 'scp -r * remote_nginx@nginx:/home/remote_nginx/www'
     }
   }

@@ -20,8 +20,6 @@ node {
     }
   }
   stage('Deploy') {
-    script {
-      sh 'scp -r * remote_nginx@nginx:/home/remote_nginx/www'
-    }
+    sh 'scp -r * remote_nginx@nginx:/home/remote_nginx/www'
   }
 }

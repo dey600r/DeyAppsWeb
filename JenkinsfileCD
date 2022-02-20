@@ -12,6 +12,7 @@ node {
     nodejs(nodeJSInstallationName: 'NodeJS') {
       sh '''
         ssh remote_jenkins@nginx
+        ls -la
         cd ./DeployWeb
         date_backup=backup-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)
         mkdir $date_backup

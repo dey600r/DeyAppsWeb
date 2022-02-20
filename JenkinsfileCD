@@ -2,15 +2,15 @@ node {
   stage('SCM') {
     checkout scm
   }
-  stage('Install and Build') { 
-    nodejs(nodeJSInstallationName: 'NodeJS') {
-      sh 'npm install'
-      sh 'ng build --configuration=production'
-    }
-  }
+  // stage('Install and Build') { 
+  //   nodejs(nodeJSInstallationName: 'NodeJS') {
+  //     sh 'npm install'
+  //     sh 'ng build --configuration=production'
+  //   }
+  // }
   stage('Deploy') { 
     nodejs(nodeJSInstallationName: 'NodeJS') {
-      sh 'scp -r /var/jenkins_home/workspace/MTM-Web-CI/dist/DeyApps/* remote_jenkins@nginx:./DeployWeb/www'
+      sh 'scp -r /var/jenkins_home/workspace/MTM-Web-CD/dist/DeyApps/* remote_jenkins@nginx:./DeployWeb/www'
     }
   }
 }

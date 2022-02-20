@@ -10,13 +10,32 @@ node {
   // }
   stage('Deploy') { 
     nodejs(nodeJSInstallationName: 'NodeJS') {
-      sh 'ssh remote_jenkins@nginx'
-      sh 'cd ./DeployWeb'
-      sh 'date_backup=backup-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)'
-      sh 'mkdir $date_backup'
-      sh 'mv ./www/* ./backup/$date_backup'
-      sh 'exit'
+      sh '''
+        ssh remote_jenkins@nginx
+        cd ./DeployWeb
+        date_backup=backup-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)
+        mkdir $date_backup
+        mv ./www/* ./backup/$date_backup
+      '''
       sh 'scp -r /var/jenkins_home/workspace/MTM-Web-CD/dist/DeyApps/* remote_jenkins@nginx:./DeployWeb/www'
     }
   }
+  post {
+        always {
+            echo 'This will always run'
+        }
+        success {
+            echo 'This will run only if successful'
+        }
+        failure {
+            echo 'This will run only if failed'
+        }
+        unstable {
+            echo 'This will run only if the run was marked as unstable'
+        }
+        changed {
+            echo 'This will run only if the state of the Pipeline has changed'
+            echo 'For example, if the Pipeline was previously failing but is now successful'
+        }
+    }
 }

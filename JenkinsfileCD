@@ -17,7 +17,7 @@ node {
       //   mkdir $date_backup && \
       //   mv ./www/* ./backup/$date_backup
       // '''
-      sh 'ssh remote_jenkins@nginx'
+      sh 'ssh -tt remote_jenkins@nginx'
       sh 'ls -la'
       sh 'cd ./DeployWeb'
       sh 'date_backup=backup-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)'

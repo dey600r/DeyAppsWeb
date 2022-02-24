@@ -9,7 +9,7 @@ node {
   //   }
   // }
   stage('Deploy') { 
-      sh '''
+      pwsh '''
         ssh remote_jenkins@nginx && \
         ls -la && \
         cd ./DeployWeb && \

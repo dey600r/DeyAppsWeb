@@ -15,7 +15,7 @@ node {
         cd ./DeployWeb && \
         date_backup=backup-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S) && \
         mkdir $date_backup && \
-        mv ./www/* ./backup/$date_backup && \
+        mv ./www/* ./backup/$date_backup
       '''
       sh 'scp -r /var/jenkins_home/workspace/MTM-Web-CD/dist/DeyApps/* remote_jenkins@nginx:./DeployWeb/www'
   }

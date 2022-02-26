@@ -9,7 +9,7 @@ node {
   //   }
   // }
   stage('Deploy') {
-    sshagent(credentials: ['nginx']) {
+    //sshagent(credentials: ['nginx']) {
       sh '''
         date_backup=backup-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)
         pathDeploy=./DeployWeb
@@ -19,7 +19,7 @@ node {
         ssh remote_jenkins@nginx mv $pathDeployWeb/* $pathDeployBackup/$date_backup
         scp -r /var/jenkins_home/workspace/MTM-Web-CD/dist/DeyApps/* remote_jenkins@nginx:$pathDeployWeb
       '''
-    }
+    //}
       
     //   sh 'ssh -tt remote_jenkins@nginx'
     //   sh 'ls -la'

@@ -13,7 +13,6 @@ node {
       sh '''
         date_backup=backup-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)
         ssh remote_jenkins@nginx mkdir ./DeployWeb/backup/$date_backup
-        mv ./www/* ./backup/$date_backup
       '''
       sh 'ssh remote_jenkins@nginx mv ./DeployWeb/www/* ./DeployWeb/backup/$date_backup'
       sh 'scp -r /var/jenkins_home/workspace/MTM-Web-CD/dist/DeyApps/* remote_jenkins@nginx:./DeployWeb/www'

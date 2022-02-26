@@ -15,8 +15,7 @@ describe('IconCarouselComponent', () => {
   let translate: TranslateService;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule(SetupTest.config)
-    .compileComponents();
+    await TestBed.configureTestingModule(SetupTest.GetConfig(IconCarouselComponent)).compileComponents();
     translate = TestBed.inject(TranslateService);
     await firstValueFrom(translate.use('es'));
   });

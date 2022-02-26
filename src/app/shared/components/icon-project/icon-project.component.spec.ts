@@ -17,8 +17,7 @@ describe('IconProjectComponent', () => {
   let router: Router;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule(SetupTest.config)
-    .compileComponents();
+    await TestBed.configureTestingModule(SetupTest.GetConfig(IconProjectComponent)).compileComponents();
     translate = TestBed.inject(TranslateService);
     await firstValueFrom(translate.use('es'));
   });

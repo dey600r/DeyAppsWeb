@@ -9,7 +9,7 @@ describe('BackgroundHeaderComponent', () => {
   let fixture: ComponentFixture<BackgroundHeaderComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule(SetupTest.config).compileComponents();
+    await TestBed.configureTestingModule(SetupTest.GetConfig(BackgroundHeaderComponent)).compileComponents();
   });
 
   beforeEach(() => {

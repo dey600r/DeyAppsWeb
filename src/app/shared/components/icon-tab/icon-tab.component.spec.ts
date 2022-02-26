@@ -16,8 +16,7 @@ describe('IconTabComponent', () => {
   let translate: TranslateService;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule(SetupTest.config)
-    .compileComponents();
+    await TestBed.configureTestingModule(SetupTest.GetConfig(IconTabComponent)).compileComponents();
     utilsServices = TestBed.inject(UtilsService);
     translate = TestBed.inject(TranslateService);
     await firstValueFrom(translate.use('es'));

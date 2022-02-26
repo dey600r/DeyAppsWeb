@@ -32,13 +32,11 @@ module.exports = function (config) {
       reportName: 'junit-test.xml'
     },
     reporters: ['progress', 'kjhtml', 'sonarqube', 'coverage'],
-    // preprocessors: {
-    //   'src/**/*.js': ['coverage']
-    // },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
+    //browsers: ['Chrome'],
     browsers: ['ChromeHeadlessNoSandbox'],
     customLaunchers: {
       ChromeHeadlessNoSandbox: {

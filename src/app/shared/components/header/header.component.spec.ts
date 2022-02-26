@@ -16,12 +16,7 @@ describe('HeaderComponent', () => {
   let location: Location;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [HeaderComponent],
-      imports: SetupTest.config.imports,
-      providers: SetupTest.config.providers,
-      schemas: SetupTest.config.schemas
-    }).compileComponents();
+    await TestBed.configureTestingModule(SetupTest.GetConfig(HeaderComponent)).compileComponents();
     translate = TestBed.inject(TranslateService);
     await firstValueFrom(translate.use('es'));
   });

@@ -17,7 +17,21 @@ node {
   stage('Build Prod') { 
     nodejs(nodeJSInstallationName: 'NodeJS') {
       sh 'ng build --configuration=production'
-      sh 'scp -r * remote_nginx@nginx:/home/remote_nginx/www'
     }
+  }
+  stage('Deploy') {
+    sshagent(credentials: ['nginx']) {
+      sh '''
+        date_backup=backup-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)
+        pathDeploy=./DeployWeb
+        pathDeployWeb=$pathDeploy/www
+        pathDeployBackup=$pathDeploy/backup
+        remoteUser=remote_jenkins
+        remoteHost=nginx
+        ssh $remoteUser@$remoteHost mkdir $pathDeployBackup/$date_backup
+        ssh $remoteUser@$remoteHost mv $pathDeployWeb/* $pathDeployBackup/$date_backup
+        scp -r ./dist/DeyApps/* $remoteUser@$remoteHost:$pathDeployWeb
+      '''
+    }   
   }
 }

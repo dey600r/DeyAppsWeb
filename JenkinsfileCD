@@ -12,10 +12,13 @@ node {
     sshagent(credentials: ['nginx']) {
       sh '''
         date_backup=backup-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)
-        ssh remote_jenkins@nginx mkdir ./DeployWeb/backup/$date_backup
+        pathDeploy=./DeployWeb
+        pathDeployWeb=$pathDeploy/www
+        pathDeployBackup=.$pathDeploy/backup
+        ssh remote_jenkins@nginx mkdir $pathDeployBackup/$date_backup
+        ssh remote_jenkins@nginx mv $pathDeployWeb/* $pathDeployBackup/$date_backup
+        scp -r /var/jenkins_home/workspace/MTM-Web-CD/dist/DeyApps/* remote_jenkins@nginx:$pathDeployWeb
       '''
-      sh 'ssh remote_jenkins@nginx mv ./DeployWeb/www/* ./DeployWeb/backup/$date_backup'
-      sh 'scp -r /var/jenkins_home/workspace/MTM-Web-CD/dist/DeyApps/* remote_jenkins@nginx:./DeployWeb/www'
     }
       
     //   sh 'ssh -tt remote_jenkins@nginx'

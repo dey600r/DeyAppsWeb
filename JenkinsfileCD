@@ -10,7 +10,7 @@ node {
   // }
   stage('Deploy') { 
       sh '''
-        ssh -tt -q remote_jenkins@nginx
+        ssh -q remote_jenkins@nginx
         ls -la
         cd ./DeployWeb
         date_backup=backup-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)

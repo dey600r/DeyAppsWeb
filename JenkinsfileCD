@@ -14,7 +14,7 @@ node {
         date_backup=backup-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)
         pathDeploy=./DeployWeb
         pathDeployWeb=$pathDeploy/www
-        pathDeployBackup=.$pathDeploy/backup
+        pathDeployBackup=$pathDeploy/backup
         ssh remote_jenkins@nginx mkdir $pathDeployBackup/$date_backup
         ssh remote_jenkins@nginx mv $pathDeployWeb/* $pathDeployBackup/$date_backup
         scp -r /var/jenkins_home/workspace/MTM-Web-CD/dist/DeyApps/* remote_jenkins@nginx:$pathDeployWeb

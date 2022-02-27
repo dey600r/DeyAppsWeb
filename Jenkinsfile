@@ -8,9 +8,6 @@ node {
   //     sh 'ng test --code-coverage --watch=false'
   //   }
   // }
-  stage('PING') {
-    sh 'ping sonarqube'
-  }
   stage('SonarQube Analysis') {
     def scannerHome = tool 'SonarScanner';
     withSonarQubeEnv('SonarScanner') {

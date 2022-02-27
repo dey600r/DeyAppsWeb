@@ -41,6 +41,6 @@ node {
       mkdir -p $outputPath
       zip -r ./$outputPath/$date_artifact.zip ./dist/DeyApps/*
     '''
-    archiveArtifacts artifacts: './output_version/*.zip'
+    archiveArtifacts artifacts: 'output_version/*.zip'
   }
 }

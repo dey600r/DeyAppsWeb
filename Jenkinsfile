@@ -42,6 +42,6 @@ node {
     //   zip -r ./$outputPath/$date_artifact.zip ./dist/DeyApps/*
     // '''
     // archiveArtifacts artifacts: 'output_version/*.zip'
-    junit: 'coverage/*test.xml'
+    junit 'coverage/*test.xml'
   }
 }

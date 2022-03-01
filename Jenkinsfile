@@ -34,14 +34,14 @@ node {
   //     '''
   //   }   
   // }
-  stage('Create Artifacts') {
-    sh '''
-      date_artifact=mtm-web-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)
-      outputPath=output_version
-      mkdir -p $outputPath
-      zip -r ./$outputPath/$date_artifact.zip ./dist/DeyApps/*
-    '''
-    archiveArtifacts artifacts: 'output_version/*.zip'
+  stage('Save Artifacts and Test') {
+    // sh '''
+    //   date_artifact=mtm-web-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)
+    //   outputPath=output_version
+    //   mkdir -p $outputPath
+    //   zip -r ./$outputPath/$date_artifact.zip ./dist/DeyApps/*
+    // '''
+    // archiveArtifacts artifacts: 'output_version/*.zip'
     junit: 'coverage/*test.xml'
   }
 }

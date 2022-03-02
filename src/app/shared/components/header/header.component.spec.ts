@@ -26,7 +26,7 @@ describe('HeaderComponent', () => {
     location = TestBed.inject(Location);
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    //fixture.detectChanges();
   });
 
   it('should create', () => {

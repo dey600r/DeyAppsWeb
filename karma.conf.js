@@ -12,6 +12,7 @@ module.exports = function (config) {
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
       require('karma-sonarqube-reporter'),
+      require('karma-junit-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
@@ -32,7 +33,11 @@ module.exports = function (config) {
       outputFolder: './coverage', 
       reportName: 'junit-test.xml'
     },
-    reporters: ['progress', 'kjhtml', 'sonarqube', 'coverage'],
+    junitReporter    : {
+      outputDir : './coverage/junit/',
+      outputFile: 'junit-report-test.xml'
+    },
+    reporters: ['progress', 'kjhtml', 'sonarqube', 'coverage', 'junit'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

@@ -42,4 +42,7 @@ describe('AppComponent', () => {
     expect(spy).toHaveBeenCalledWith([Constants.ROUTE_INFO_MTM]);
   }));
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
 });

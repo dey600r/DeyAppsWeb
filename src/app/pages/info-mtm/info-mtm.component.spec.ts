@@ -58,4 +58,8 @@ describe('InfoMtmComponent', () => {
     const desc = fixture.debugElement.nativeElement.querySelector('#cardDescriptionApp');
     expect(desc.innerHTML).toBe(MockTranslate.EN.HOME.descriptionLargeProjects);
   });
+
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
 });

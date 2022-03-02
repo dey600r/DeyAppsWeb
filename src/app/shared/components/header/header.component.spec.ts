@@ -44,4 +44,8 @@ describe('HeaderComponent', () => {
     router.navigateByUrl(Constants.ROUTE_INFO_MTM);
     expect(component.selectedItem).toEqual(component.items[1]);
   });
+
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
 });

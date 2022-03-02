@@ -58,4 +58,8 @@ describe('IconCarouselComponent', () => {
     expect(component.displayModal).toBeTrue();
     expect(component.selectedPicture).toEqual(component.picturesApp[0]);
   });
+
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
 });

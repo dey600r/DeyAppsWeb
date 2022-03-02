@@ -76,4 +76,8 @@ describe('IconProjectComponent', () => {
       Constants.URL_MTM_ANDROID_ES, 'button-gray', '', true));
     expect(spy).toHaveBeenCalledWith(Constants.URL_MTM_ANDROID_ES, '_blank');
   });
+
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
 });

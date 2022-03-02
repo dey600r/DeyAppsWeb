@@ -64,4 +64,8 @@ describe('IconTabComponent', () => {
     fixture.detectChanges();
     expect(component.dataInfoCarousel.theme).toBe(Constants.THEME_LIGHT);
   });
+
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
 });

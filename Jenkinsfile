@@ -42,7 +42,7 @@ node {
       zip -r ./$outputPath/$date_artifact.zip ./dist/DeyApps/*
     '''
     archiveArtifacts artifacts: 'output_version/*.zip'
-    junit 'coverage/junit/**/*.xml',
+    junit 'coverage/junit/**/*.xml'
     cobertura coberturaReportFile: 'coverage/*coverage.xml'
   }
 }

@@ -43,6 +43,6 @@ node {
     '''
     archiveArtifacts artifacts: 'output_version/*.zip'
     junit 'coverage/junit/**/*.xml',
-    coberturaReportFile: 'coverage/*coverage.xml'
+    coberturaReportFile 'coverage/*coverage.xml'
   }
 }

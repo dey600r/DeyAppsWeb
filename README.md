@@ -9,4 +9,4 @@ Proyect is created with:
 * Primeng 13
 * Jasmine and Karma
 
-![Algorithm schema](./images_readme/captura.jpg)
+![DeyAppsHome](./images_readme/Captura.PNG)

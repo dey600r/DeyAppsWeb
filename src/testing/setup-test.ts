@@ -2,6 +2,7 @@ import { ChangeDetectorRef, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { routes } from 'src/app/app-routing.module';
 
 // PRIMENG
 import { CarouselModule } from 'primeng/carousel';
@@ -14,7 +15,6 @@ import { DialogModule } from 'primeng/dialog';
 
 // COMPONENTS
 import { AppComponent } from 'src/app/app.component';
-import { routes } from 'src/app/app-routing.module';
 import { HomeComponent } from '@pages/home/home.component';
 import { InfoMtmComponent } from '@pages/info-mtm/info-mtm.component';
 import { MtmPrivacyPolicyComponent } from '@pages/info-mtm/mtm-privacy-policy/mtm-privacy-policy.component';
@@ -57,20 +57,6 @@ export class SetupTest {
           })
         ],
         declarations: [
-          AppComponent,
-          HomeComponent,
-          InfoMtmComponent,
-          MtmPrivacyPolicyComponent,
-          HeaderComponent,
-          FooterComponent,
-          IconDocComponent,
-          IconProjectComponent,
-          IconCarouselComponent,
-          IconTabComponent,
-          IconListCardComponent,
-          IconLinksComponent,
-          IconHeaderComponent,
-          BackgroundHeaderComponent
         ],
         providers: [
           TranslateService,
@@ -78,6 +64,18 @@ export class SetupTest {
         ],
         schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     };
+
+    public static GetConfig(component: any): any {
+      var result: any = SetupTest.config;
+      result.declarations = [component];
+      return result;
+    }
+
+    public static GetConfigs(components: any[]): any {
+      var result: any = SetupTest.config;
+      result.declarations = components;
+      return result;
+    }
 }
 
 // tslint:disable-next-line: typedef

@@ -10,7 +10,7 @@ describe('AppComponent', () => {
   let router: Router;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule(SetupTest.config).compileComponents();
+    await TestBed.configureTestingModule(SetupTest.GetConfig(AppComponent)).compileComponents();
     router = TestBed.inject(Router);
   });
 
@@ -42,4 +42,7 @@ describe('AppComponent', () => {
     expect(spy).toHaveBeenCalledWith([Constants.ROUTE_INFO_MTM]);
   }));
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
 });

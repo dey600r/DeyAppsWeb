@@ -16,8 +16,7 @@ describe('IconTabComponent', () => {
   let translate: TranslateService;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule(SetupTest.config)
-    .compileComponents();
+    await TestBed.configureTestingModule(SetupTest.GetConfig(IconTabComponent)).compileComponents();
     utilsServices = TestBed.inject(UtilsService);
     translate = TestBed.inject(TranslateService);
     await firstValueFrom(translate.use('es'));
@@ -64,5 +63,9 @@ describe('IconTabComponent', () => {
     component.changeInfoCarousel({});
     fixture.detectChanges();
     expect(component.dataInfoCarousel.theme).toBe(Constants.THEME_LIGHT);
+  });
+
+  afterAll(() => {
+    TestBed.resetTestingModule();
   });
 });

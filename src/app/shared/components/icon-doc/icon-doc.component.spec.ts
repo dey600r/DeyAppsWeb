@@ -12,7 +12,7 @@ describe('IconDocComponent', () => {
   let translate: TranslateService;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule(SetupTest.config).compileComponents();
+    await TestBed.configureTestingModule(SetupTest.GetConfig(IconDocComponent)).compileComponents();
     translate = TestBed.inject(TranslateService);
     await firstValueFrom(translate.use('es'));
   });
@@ -25,5 +25,9 @@ describe('IconDocComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  afterAll(() => {
+    TestBed.resetTestingModule();
   });
 });

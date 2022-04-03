@@ -17,8 +17,7 @@ describe('IconProjectComponent', () => {
   let router: Router;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule(SetupTest.config)
-    .compileComponents();
+    await TestBed.configureTestingModule(SetupTest.GetConfig(IconProjectComponent)).compileComponents();
     translate = TestBed.inject(TranslateService);
     await firstValueFrom(translate.use('es'));
   });
@@ -76,5 +75,9 @@ describe('IconProjectComponent', () => {
     component.navigateTo(new InfoIconModel('pi pi-android', 'Android', 'MtM',
       Constants.URL_MTM_ANDROID_ES, 'button-gray', '', true));
     expect(spy).toHaveBeenCalledWith(Constants.URL_MTM_ANDROID_ES, '_blank');
+  });
+
+  afterAll(() => {
+    TestBed.resetTestingModule();
   });
 });

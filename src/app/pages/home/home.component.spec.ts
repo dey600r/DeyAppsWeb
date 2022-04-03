@@ -12,7 +12,7 @@ describe('HomeComponent', () => {
   let translate: TranslateService;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule(SetupTest.config).compileComponents();
+    await TestBed.configureTestingModule(SetupTest.GetConfig(HomeComponent)).compileComponents();
     translate = TestBed.inject(TranslateService);
     await firstValueFrom(translate.use('es'));
   });
@@ -25,5 +25,9 @@ describe('HomeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  afterAll(() => {
+    TestBed.resetTestingModule();
   });
 });

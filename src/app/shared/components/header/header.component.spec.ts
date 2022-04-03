@@ -16,12 +16,7 @@ describe('HeaderComponent', () => {
   let location: Location;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [HeaderComponent],
-      imports: SetupTest.config.imports,
-      providers: SetupTest.config.providers,
-      schemas: SetupTest.config.schemas
-    }).compileComponents();
+    await TestBed.configureTestingModule(SetupTest.GetConfig(HeaderComponent)).compileComponents();
     translate = TestBed.inject(TranslateService);
     await firstValueFrom(translate.use('es'));
   });
@@ -31,7 +26,7 @@ describe('HeaderComponent', () => {
     location = TestBed.inject(Location);
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    //fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -48,5 +43,9 @@ describe('HeaderComponent', () => {
     spyOn(location, 'path').and.returnValue(Constants.ROUTE_INFO_MTM);
     router.navigateByUrl(Constants.ROUTE_INFO_MTM);
     expect(component.selectedItem).toEqual(component.items[1]);
+  });
+
+  afterAll(() => {
+    TestBed.resetTestingModule();
   });
 });

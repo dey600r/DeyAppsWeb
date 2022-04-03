@@ -52,6 +52,7 @@
     "karma-jasmine": "^4.0.1",
     "karma-jasmine-html-reporter": "^1.7.0",
     "karma-sonarqube-reporter": "^1.4.0",
+    "karma-junit-reporter": "^2.0.1",
     "protractor": "^7.0.0",
     "simple-swizzle": "^0.2.2",
     "ts-node": "^10.4.0",

@@ -9,7 +9,7 @@ describe('IconLinksComponent', () => {
   let fixture: ComponentFixture<IconLinksComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule(SetupTest.config).compileComponents();
+    await TestBed.configureTestingModule(SetupTest.GetConfig(IconLinksComponent)).compileComponents();
   });
 
   beforeEach(() => {
@@ -20,5 +20,9 @@ describe('IconLinksComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  afterAll(() => {
+    TestBed.resetTestingModule();
   });
 });

@@ -15,8 +15,7 @@ describe('IconCarouselComponent', () => {
   let translate: TranslateService;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule(SetupTest.config)
-    .compileComponents();
+    await TestBed.configureTestingModule(SetupTest.GetConfig(IconCarouselComponent)).compileComponents();
     translate = TestBed.inject(TranslateService);
     await firstValueFrom(translate.use('es'));
   });
@@ -58,5 +57,9 @@ describe('IconCarouselComponent', () => {
     component.showModalDialog(component.picturesApp[0]);
     expect(component.displayModal).toBeTrue();
     expect(component.selectedPicture).toEqual(component.picturesApp[0]);
+  });
+
+  afterAll(() => {
+    TestBed.resetTestingModule();
   });
 });

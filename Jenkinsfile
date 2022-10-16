@@ -19,30 +19,30 @@ node {
       sh 'ng build --configuration=production'
     }
   }
-  stage('Deploy') {
-    sshagent(credentials: ['nginx']) {
-      sh '''
-        date_backup=backup-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)
-        pathDeploy=./DeployWeb
-        pathDeployWeb=$pathDeploy/www
-        pathDeployBackup=$pathDeploy/backup
-        remoteUser=remote_jenkins
-        remoteHost=nginx
-        ssh $remoteUser@$remoteHost mkdir $pathDeployBackup/$date_backup
-        ssh $remoteUser@$remoteHost mv $pathDeployWeb/* $pathDeployBackup/$date_backup
-        scp -r ./dist/DeyApps/* $remoteUser@$remoteHost:$pathDeployWeb
-      '''
-    }   
-  }
-  stage('Save Artifacts and Test') {
-    sh '''
-      date_artifact=mtm-web-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)
-      outputPath=output_version
-      mkdir -p $outputPath
-      zip -r ./$outputPath/$date_artifact.zip ./dist/DeyApps/*
-    '''
-    archiveArtifacts artifacts: 'output_version/*.zip'
-    junit 'coverage/junit/**/*.xml'
-    cobertura coberturaReportFile: 'coverage/*coverage.xml'
-  }
+  // stage('Deploy') {
+  //   sshagent(credentials: ['nginx']) {
+  //     sh '''
+  //       date_backup=backup-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)
+  //       pathDeploy=./DeployWeb
+  //       pathDeployWeb=$pathDeploy/www
+  //       pathDeployBackup=$pathDeploy/backup
+  //       remoteUser=remote_jenkins
+  //       remoteHost=nginx
+  //       ssh $remoteUser@$remoteHost mkdir $pathDeployBackup/$date_backup
+  //       ssh $remoteUser@$remoteHost mv $pathDeployWeb/* $pathDeployBackup/$date_backup
+  //       scp -r ./dist/DeyApps/* $remoteUser@$remoteHost:$pathDeployWeb
+  //     '''
+  //   }   
+  // }
+  // stage('Save Artifacts and Test') {
+  //   sh '''
+  //     date_artifact=mtm-web-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)
+  //     outputPath=output_version
+  //     mkdir -p $outputPath
+  //     zip -r ./$outputPath/$date_artifact.zip ./dist/DeyApps/*
+  //   '''
+  //   archiveArtifacts artifacts: 'output_version/*.zip'
+  //   junit 'coverage/junit/**/*.xml'
+  //   cobertura coberturaReportFile: 'coverage/*coverage.xml'
+  // }
 }

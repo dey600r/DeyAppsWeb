@@ -22,20 +22,16 @@ node {
   stage('Deploy') {
     sshagent(credentials: ['remote_user']) {
       sh '''
-        ssh remote_user@nginx
-        ls -la
+        date_backup=backup-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)
+        pathDeploy=./DeployWeb
+        pathDeployWeb=$pathDeploy/www
+        pathDeployBackup=$pathDeploy/backup
+        remoteUser=remote_user
+        remoteHost=nginx
+        ssh $remoteUser@$remoteHost mkdir $pathDeployBackup/$date_backup
+        ssh $remoteUser@$remoteHost mv $pathDeployWeb/* $pathDeployBackup/$date_backup
+        scp -r ./dist/DeyApps/* $remoteUser@$remoteHost:$pathDeployWeb
       '''
-      // sh '''
-      //   date_backup=backup-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)
-      //   pathDeploy=./DeployWeb
-      //   pathDeployWeb=$pathDeploy/www
-      //   pathDeployBackup=$pathDeploy/backup
-      //   remoteUser=remote_jenkins
-      //   remoteHost=nginx
-      //   ssh $remoteUser@$remoteHost mkdir $pathDeployBackup/$date_backup
-      //   ssh $remoteUser@$remoteHost mv $pathDeployWeb/* $pathDeployBackup/$date_backup
-      //   scp -r ./dist/DeyApps/* $remoteUser@$remoteHost:$pathDeployWeb
-      // '''
     }   
   }
   // stage('Save Artifacts and Test') {

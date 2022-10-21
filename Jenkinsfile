@@ -20,7 +20,7 @@ node {
   //   }
   // }
   stage('Deploy') {
-    sshagent(credentials: ['nginx']) {
+    sshagent(credentials: ['remote_user']) {
       sh '''
         ssh remote_user@nginx
         ls -la

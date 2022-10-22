@@ -27,7 +27,7 @@ node {
         pathDeployWeb=$pathDeploy/www
         pathDeployBackup=$pathDeploy/backup
         remoteUser=remote_user
-        remoteHost=nginx
+        remoteHost=nginx-ssh
         ssh $remoteUser@$remoteHost mkdir $pathDeployBackup/$date_backup
         ssh $remoteUser@$remoteHost mv $pathDeployWeb/* $pathDeployBackup/$date_backup
         scp -r ./dist/DeyApps/* $remoteUser@$remoteHost:$pathDeployWeb

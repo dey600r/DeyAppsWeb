@@ -23,7 +23,7 @@ node {
     sshagent(credentials: ['remote_user']) {
       sh '''
         date_backup=backup-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)
-        pathDeploy=./DeployWeb
+        pathDeploy=./deyapps-web
         pathDeployWeb=$pathDeploy/www
         pathDeployBackup=$pathDeploy/backup
         remoteUser=remote_user

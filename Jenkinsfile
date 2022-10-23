@@ -11,7 +11,9 @@ node {
   stage('SonarQube Analysis') {
     def scannerHome = tool 'SonarScanner';
     withSonarQubeEnv() {
-      sh "${scannerHome}/bin/sonar-scanner"
+      nodejs(nodeJSInstallationName: 'NodeJS') {
+        sh "${scannerHome}/bin/sonar-scanner"
+      }
     }
   }
   stage('Build Prod') { 

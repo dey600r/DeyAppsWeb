@@ -10,7 +10,7 @@
     </ng-template>
 </p-carousel>
 
-<p-dialog [showHeader]="true" [closable]="true" [(visible)]="displayModal" [breakpoints]="{'960px': '510px', '640px': '310px'}" [style]="{width: '1000px'}" [baseZIndex]="10000">
+<p-dialog [showHeader]="true" [closable]="true" [(visible)]="displayModal" [breakpoints]="{'960px': '510px', '640px': '310px'}"  [baseZIndex]="10000">
     <img [ngClass]="{ 'img-android': selectedPicture.type === 'android', 'img-windows': selectedPicture.type === 'windows'}" 
         [alt]="selectedPicture.name" [src]="selectedPicture.url" class="product-image">
 </p-dialog>

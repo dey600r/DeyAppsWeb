@@ -11,7 +11,9 @@ node {
   stage('SonarQube Analysis') {
     def scannerHome = tool 'SonarScanner';
     withSonarQubeEnv() {
-      sh "${scannerHome}/bin/sonar-scanner"
+      nodejs(nodeJSInstallationName: 'NodeJS') {
+        sh "${scannerHome}/bin/sonar-scanner"
+      }
     }
   }
   stage('Build Prod') { 
@@ -20,14 +22,14 @@ node {
     }
   }
   stage('Deploy') {
-    sshagent(credentials: ['nginx']) {
+    sshagent(credentials: ['remote_user']) {
       sh '''
         date_backup=backup-$(date +%d)-$(date +%m)-$(date +%Y)-$(date +%H):$(date +%M):$(date +%S)
-        pathDeploy=./DeployWeb
+        pathDeploy=./deyapps-web
         pathDeployWeb=$pathDeploy/www
         pathDeployBackup=$pathDeploy/backup
-        remoteUser=remote_jenkins
-        remoteHost=nginx
+        remoteUser=remote_user
+        remoteHost=nginx-ssh
         ssh $remoteUser@$remoteHost mkdir $pathDeployBackup/$date_backup
         ssh $remoteUser@$remoteHost mv $pathDeployWeb/* $pathDeployBackup/$date_backup
         scp -r ./dist/DeyApps/* $remoteUser@$remoteHost:$pathDeployWeb

@@ -30,16 +30,16 @@ p-dialog img {
 }
 
 p-dialog img.img-android {
-    width: 310px;
+    width: 320px;
 }
 
 p-dialog img.img-windows {
-    width: 1000px;
+    width: 1010px;
 }
 
 @media (max-width: 960px) {
     p-dialog img.img-android {
-        width: 300px;
+        width: 285px;
     }
 
     p-dialog img.img-windows {
@@ -49,7 +49,7 @@ p-dialog img.img-windows {
 
 @media (max-width: 640px) {
     p-dialog img.img-android {
-        width: 300px;
+        width: 285px;
     }
 
     p-dialog img.img-windows {

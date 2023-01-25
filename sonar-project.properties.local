@@ -1,7 +1,7 @@
 sonar.projectKey=MtM-Web
 sonar.projectVersion=1.1
 sonar.host.url=http://localhost:9001
-sonar.login=26e2e1e26201b8a547eed02b5ca7e3881a8a376b
+sonar.login=e30f28d13aa41bf817bbb0c7e56982639ee9c1e7
 sonar.sources=src
 sonar.exclusions=node_modules,src/environments/*,**/*module.ts,src/main.ts
 sonar.inclusions=**/*.ts,**/*.spec.ts

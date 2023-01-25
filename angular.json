@@ -145,5 +145,7 @@
       }
     }
   },
-  "defaultProject": "DeyApps"
+  "cli": {
+    "analytics": false
+  }
 }

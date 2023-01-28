@@ -1,3 +1,4 @@
+export * from './info-base.model';
 export * from './info-icon.model';
 export * from './info-developer.model';
 export * from './info-project.model';

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { InfoDeveloperModel } from '@app/core/models';
 
 @Component({
@@ -6,13 +6,8 @@ import { InfoDeveloperModel } from '@app/core/models';
   templateUrl: './icon-doc.component.html',
   styleUrls: ['./icon-doc.component.scss']
 })
-export class IconDocComponent implements OnInit {
+export class IconDocComponent {
 
   @Input() dataInfo: InfoDeveloperModel = new InfoDeveloperModel();
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

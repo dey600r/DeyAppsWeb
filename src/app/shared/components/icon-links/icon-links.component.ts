@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { InfoBaseIconModel } from '@app/core/models/info-base.model';
 
 @Component({
@@ -6,13 +6,8 @@ import { InfoBaseIconModel } from '@app/core/models/info-base.model';
   templateUrl: './icon-links.component.html',
   styleUrls: ['./icon-links.component.scss']
 })
-export class IconLinksComponent implements OnInit {
+export class IconLinksComponent {
 
   @Input() dataInfo: InfoBaseIconModel[] = [];
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { InfoDeveloperModel, InfoProjectModel, InfoIconModel } from '@models/index';
 import cssVars from 'css-vars-ponyfill';
@@ -8,7 +8,7 @@ import cssVars from 'css-vars-ponyfill';
   templateUrl: './icon-project.component.html',
   styleUrls: ['./icon-project.component.scss']
 })
-export class IconProjectComponent implements OnInit {
+export class IconProjectComponent {
 
   @Input() dataInfo: InfoProjectModel = new InfoProjectModel(
     '', new InfoDeveloperModel('', '', [new InfoIconModel()]));
@@ -16,8 +16,6 @@ export class IconProjectComponent implements OnInit {
   constructor(public router: Router) {
     cssVars();
   }
-
-  ngOnInit(): void {}
 
   navigateTo(url: InfoIconModel): void {
     if (url.external) {

@@ -9,10 +9,7 @@ import cssVars from 'css-vars-ponyfill';
 })
 export class FooterComponent implements OnInit {
 
-  //routeMtmPrivacyPolicy = `/${Constants.ROUTE_INFO_MTM}/${Constants.ROUTE_MTM_PRIVACIY_POLICY}`;
   routeMtmPrivacyPolicy = `/${Constants.ROUTE_MTM_PRIVACIY_POLICY}`;
-
-  constructor() { }
 
   ngOnInit(): void {
     cssVars();

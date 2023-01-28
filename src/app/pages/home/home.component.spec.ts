@@ -23,7 +23,12 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create - ES', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should create - EN', async () => {
+    await firstValueFrom(translate.use('en'));
     expect(component).toBeTruthy();
   });
 

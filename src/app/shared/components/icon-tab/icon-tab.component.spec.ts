@@ -60,9 +60,16 @@ describe('IconTabComponent', () => {
 
   it('should change theme light', () => {
     component.selectedTheme = Constants.THEME_LIGHT;
-    component.changeInfoCarousel({});
+    component.changeInfoCarousel();
     fixture.detectChanges();
     expect(component.dataInfoCarousel.theme).toBe(Constants.THEME_LIGHT);
+  });
+
+  it('should change theme dark', () => {
+    component.selectedTheme = Constants.THEME_DARK;
+    component.changeInfoCarousel({ data: 'hola' });
+    fixture.detectChanges();
+    expect(component.dataInfoCarousel.theme).toBe(Constants.THEME_DARK);
   });
 
   afterAll(() => {

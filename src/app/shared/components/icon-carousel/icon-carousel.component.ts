@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { UtilsService } from '@services/utils.service';
 
 import { PictureModel, InfoCarouselModel } from '@models/index';
@@ -9,7 +9,7 @@ import { Constants } from '@utils/constants';
   templateUrl: './icon-carousel.component.html',
   styleUrls: ['./icon-carousel.component.scss']
 })
-export class IconCarouselComponent implements OnInit, OnChanges {
+export class IconCarouselComponent implements OnChanges {
 
   @Input() dataInfo: InfoCarouselModel = new InfoCarouselModel(Constants.TYPE_APP_ANDROID, Constants.THEME_DARK);
 
@@ -19,9 +19,6 @@ export class IconCarouselComponent implements OnInit, OnChanges {
   selectedPicture: PictureModel = new PictureModel();
 
   constructor(private utilService: UtilsService) {
-  }
-
-  ngOnInit(): void {
   }
 
   ngOnChanges(): void {

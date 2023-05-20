@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { InfoProjectCardModel } from '@app/core/models/info-card.model';
 
 @Component({
@@ -6,13 +6,8 @@ import { InfoProjectCardModel } from '@app/core/models/info-card.model';
   templateUrl: './icon-list-card.component.html',
   styleUrls: ['./icon-list-card.component.scss']
 })
-export class IconListCardComponent implements OnInit {
+export class IconListCardComponent {
 
   @Input() dataInfo: InfoProjectCardModel = new InfoProjectCardModel();
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

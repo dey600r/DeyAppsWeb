@@ -1,12 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { Constants } from '@utils/constants';
 import { TranslateService } from '@ngx-translate/core';
-import { SetupTest } from '@testing/index';
+import { MockTranslate, SetupTest } from '@testing/index';
 
 import { HeaderComponent } from './header.component';
 import { Location } from '@angular/common';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, of } from 'rxjs';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -26,7 +26,6 @@ describe('HeaderComponent', () => {
     location = TestBed.inject(Location);
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
-    //fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -43,6 +42,18 @@ describe('HeaderComponent', () => {
     spyOn(location, 'path').and.returnValue(Constants.ROUTE_INFO_MTM);
     router.navigateByUrl(Constants.ROUTE_INFO_MTM);
     expect(component.selectedItem).toEqual(component.items[1]);
+  });
+
+  it('should init header component', () => {
+    component.ngOnInit();
+    expect(component.items[0].label).toEqual(MockTranslate.ES.COMMON.home);
+    expect(component.items[0].icon).toEqual('pi pi-fw pi-home');
+    expect(component.items[0].routerLink.length).toEqual(1);
+    expect(component.items[0].routerLink[0]).toEqual(Constants.ROUTE_HOME);
+    expect(component.items[1].label).toEqual(MockTranslate.ES.COMMON.infoMtm);
+    expect(component.items[1].icon).toEqual('icon-mtm');
+    expect(component.items[1].routerLink.length).toEqual(1);
+    expect(component.items[1].routerLink[0]).toEqual(Constants.ROUTE_INFO_MTM);
   });
 
   afterAll(() => {

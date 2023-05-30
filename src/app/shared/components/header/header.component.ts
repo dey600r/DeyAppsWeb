@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       {
-        label: this.translator.instant('COMMON.home') + 'Test David build5',
+        label: this.translator.instant('COMMON.home') + 'Test David build6',
         icon: 'pi pi-fw pi-home',
         routerLink: [Constants.ROUTE_HOME]
       },

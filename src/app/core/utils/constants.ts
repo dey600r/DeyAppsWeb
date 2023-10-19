@@ -28,6 +28,8 @@ export class Constants {
     static THEME_DARK_KEY = 'D';
     static THEME_SKY_KEY = 'S';
 
+    static URL_MTM_WEB = 'https://mtmionicdey125r.web.app';
+
     static URL_MTM_ANDROID_ES = 'https://play.google.com/store/apps/details?id=mtm.ionic.dey125r&hl=es_419';
     static URL_MTM_ANDROID_EN = 'https://play.google.com/store/apps/details?id=mtm.ionic.dey125r&hl=en_419';
     static URL_MTM_WINDOWS_ES = 'https://www.microsoft.com/es-es/p/motor-track-manager/9nzcmw19fh21?activetab=pivot:overviewtab';

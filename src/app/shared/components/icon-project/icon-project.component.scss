@@ -35,6 +35,18 @@
     color: var(--main-selected-color);
 }
 
+.button-gray-soft {
+    background-color: var(--main-text-color);
+    border: 1px solid var(--main-text-color);
+    color: var(--main-text-selected-hover-color);
+}
+
+.button-gray-soft:hover {
+    background-color: var(--main-selected-hover-color);
+    border: 1px solid var(--main-selected-hover-color);
+    color: var(--main-selected-color);
+}
+
 p {
     text-align: center;
 }

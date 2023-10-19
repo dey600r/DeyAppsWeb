@@ -71,11 +71,14 @@ export class InfoMtmComponent implements OnInit {
       [environment.pathOthers, this.translator.currentLang, 'google_play.png']);
     const imgMicrosoftStore: string = this.utilService.joinPath(
       [environment.pathOthers, this.translator.currentLang, 'microsoft_store.png']);
+    const imgWebVersion: string = this.utilService.joinPath(
+      [environment.pathOthers, this.translator.currentLang, 'web_version.png']);
 
     if (this.translator.currentLang === Constants.LANGUAGE_EN) {
       this.infoLinksMtm = [
         new InfoBaseIconModel(imgGooglePlay, Constants.URL_MTM_ANDROID_EN, Constants.URL_MTM_ANDROID_EN),
-        new InfoBaseIconModel(imgMicrosoftStore, Constants.URL_MTM_WINDOWS_EN, Constants.URL_MTM_WINDOWS_EN)
+        new InfoBaseIconModel(imgMicrosoftStore, Constants.URL_MTM_WINDOWS_EN, Constants.URL_MTM_WINDOWS_EN),
+        new InfoBaseIconModel(imgWebVersion, Constants.URL_MTM_WEB, Constants.URL_MTM_WEB)
       ];
       this.infoLinksMtmFree = [
         new InfoBaseIconModel(imgGooglePlay, Constants.URL_MTM_FREE_ANDROID_EN, Constants.URL_MTM_FREE_ANDROID_EN),
@@ -84,7 +87,8 @@ export class InfoMtmComponent implements OnInit {
     } else {
       this.infoLinksMtm = [
         new InfoBaseIconModel(imgGooglePlay, Constants.URL_MTM_ANDROID_ES, Constants.URL_MTM_ANDROID_ES),
-        new InfoBaseIconModel(imgMicrosoftStore, Constants.URL_MTM_WINDOWS_ES, Constants.URL_MTM_WINDOWS_ES)
+        new InfoBaseIconModel(imgMicrosoftStore, Constants.URL_MTM_WINDOWS_ES, Constants.URL_MTM_WINDOWS_ES),
+        new InfoBaseIconModel(imgWebVersion, Constants.URL_MTM_WEB, Constants.URL_MTM_WEB)
       ];
       this.infoLinksMtmFree = [
         new InfoBaseIconModel(imgGooglePlay, Constants.URL_MTM_FREE_ANDROID_ES, Constants.URL_MTM_FREE_ANDROID_ES),

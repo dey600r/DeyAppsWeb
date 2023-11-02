@@ -1,8 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Constants } from '@utils/constants';
-import { TranslateService } from '@ngx-translate/core';
-import { InfoDeveloperModel, InfoIconModel, InfoProjectModel } from '@app/core/models';
 
+// SERVICES
+import { TranslateService } from '@ngx-translate/core';
+
+// SERVICES
+import { AnalyticsService, UtilsService } from '@services/index';
+
+// MODELS
+import { InfoDeveloperModel, InfoIconModel, InfoProjectModel } from '@models/index';
+
+// UTILS
+import { Constants } from '@utils/constants';
 import { environment } from '@environments/environment';
 
 @Component({
@@ -18,14 +26,17 @@ export class HomeComponent implements OnInit {
   infoSkills: InfoDeveloperModel = new InfoDeveloperModel();
   infoHobbies: InfoDeveloperModel = new InfoDeveloperModel();
 
-  constructor(private translator: TranslateService) {
+  constructor(private translator: TranslateService,
+              private analyticService: AnalyticsService,
+              private utilService: UtilsService) {
   }
 
   ngOnInit(): void {
+    this.analyticService.logEvent('load_home');
+
     const assetsIcon: string = environment.pathIcons;
 
-    this.infoIconDeveloper = new InfoIconModel(`${assetsIcon}/icon-developer.png`, '', 'icon-developer', '',
-      '', 'item-developer');
+    this.infoIconDeveloper = this.utilService.getIconDeveloper();
 
     this.infoDeveloper = new InfoDeveloperModel('HOME.titleInfoDeveloper', 'HOME.descriptionInfoDeveloper');
     this.infoProjects = new InfoProjectModel('HOME.titleProjects',

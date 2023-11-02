@@ -17,10 +17,6 @@ export const routes: Routes = [
     loadChildren: () => import('./pages/info-mtm/info-mtm.module').then(m => m.InfoMtmModule),
   },
   {
-    path: Constants.ROUTE_MTM_PRIVACIY_POLICY,
-    loadChildren: () => import('./pages/info-mtm/mtm-privacy-policy/mtm-privacy-policy.module').then(m => m.MtmPrivacyPolicyModule)
-  },
-  {
     path: '**',
     redirectTo: Constants.ROUTE_HOME
   },

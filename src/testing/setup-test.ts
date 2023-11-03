@@ -16,50 +16,57 @@ import { DialogModule } from 'primeng/dialog';
 // LIBRARIES
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import * as firebaseFunctions from "firebase/analytics";
 
 import { environment } from '@environments/environment';
 
 export class SetupTest {
-    static config = {
-        imports: [
-          HttpClientModule,
-          RouterTestingModule.withRoutes(routes),
-          TooltipModule,
-          CarouselModule,
-          TabMenuModule,
-          ButtonModule,
-          TabViewModule,
-          RadioButtonModule,
-          DialogModule,
-          FormsModule,
-          TranslateModule.forRoot({
-            loader: {
-              provide: TranslateLoader,
-              useFactory: (createTranslateLoader),
-              deps: [HttpClient]
-            }
-          })
-        ],
-        declarations: [
-        ],
-        providers: [
-          TranslateService,
-          ChangeDetectorRef
-        ],
-        schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
-    };
 
-    public static GetConfig(component: any): any {
-      let result: any = SetupTest.config;
-      result.declarations = [component];
-      return result;
-    }
+  // public static SpyConfig = {
+  //   analytics: jasmine.createSpyObj(firebaseFunctions, ['getAnalytics'])
+  // };
 
-    public static GetConfigs(components: any[]): any {
-      let result: any = SetupTest.config;
-      result.declarations = components;
-      return result;
-    }
+  static config = {
+      imports: [
+        HttpClientModule,
+        RouterTestingModule.withRoutes(routes),
+        TooltipModule,
+        CarouselModule,
+        TabMenuModule,
+        ButtonModule,
+        TabViewModule,
+        RadioButtonModule,
+        DialogModule,
+        FormsModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: (createTranslateLoader),
+            deps: [HttpClient]
+          }
+        })
+      ],
+      declarations: [
+      ],
+      providers: [
+        TranslateService,
+        ChangeDetectorRef,
+        // { provide: firebaseFunctions, useValue: SetupTest.SpyConfig.analytics }
+      ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  };
+
+  public static GetConfig(component: any): any {
+    let result: any = SetupTest.config;
+    result.declarations = [component];
+    return result;
+  }
+
+  public static GetConfigs(components: any[]): any {
+    let result: any = SetupTest.config;
+    result.declarations = components;
+    return result;
+  }
 }
 
 // tslint:disable-next-line: typedef

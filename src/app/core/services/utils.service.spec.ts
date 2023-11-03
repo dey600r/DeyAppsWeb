@@ -50,4 +50,23 @@ describe('UtilsService', () => {
     expect(result.icon).toContain(`assets/images/icons/icon.png`);
     expect(result.styleParentClass).toEqual(`item-mtm`);
   });
+
+  it('should be get path ICON developer', () => {
+    const result: InfoIconModel = service.getIconDeveloper();
+    expect(result.alt).toEqual(`icon-developer`);
+    expect(result.icon).toContain(`assets/images/icons/icon-developer.png`);
+    expect(result.styleParentClass).toEqual(`item-developer`);
+  });
+
+  it('should get cookie accetpted from cache', () => {
+    spyOn(localStorage, 'getItem').and.returnValues('true', null);
+    expect(service.isCookiesAccepted()).toEqual(true);
+    expect(service.isCookiesAccepted()).toEqual(false);
+  });
+
+  it('should set cookie on cache', () => {
+    const spySetItem = spyOn(localStorage, 'setItem');
+    service.acceptCookies();
+    expect(spySetItem).toHaveBeenCalled();
+  });
 });

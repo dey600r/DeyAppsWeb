@@ -6,18 +6,20 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { CookiesPopupComponent } from './cookies-popup.component';
 import { MockTranslate, SetupTest } from '@testing/index';
-import { UtilsService } from '@services/index';
+import { AnalyticsService, UtilsService } from '@services/index';
 import { Constants } from '@utils/constants';
 
 describe('CookiesPopupComponent', () => {
   let component: CookiesPopupComponent;
   let fixture: ComponentFixture<CookiesPopupComponent>;
   let utilsService: UtilsService;
+  let analyticService: AnalyticsService;
   let translate: TranslateService;
   
   beforeEach(async () => {
     await TestBed.configureTestingModule(SetupTest.GetConfig(CookiesPopupComponent)).compileComponents();
     utilsService = TestBed.inject(UtilsService);
+    analyticService = TestBed.inject(AnalyticsService);
     translate = TestBed.inject(TranslateService);
     await firstValueFrom(translate.use('es'));
   });
@@ -34,6 +36,16 @@ describe('CookiesPopupComponent', () => {
 
   it('should define route to cookies page', () => {
     expect(component.routeDeyAppsCookies).toEqual(`/${Constants.ROUTE_HOME}/${Constants.ROUTE_HOME_COOKIES}`);
+  });
+
+  it('shouldnt accept the cookies', () => {
+    const acceptSpy = spyOn(utilsService, 'acceptCookies');
+    const initSpy = spyOn(analyticService, 'initializeApp');
+    const isAcceptSpy = spyOn(utilsService, 'isCookiesAccepted').and.returnValue(false);
+    component.acceptCookies();
+    expect(acceptSpy).toHaveBeenCalled();
+    expect(initSpy).toHaveBeenCalled();
+    expect(isAcceptSpy).toHaveBeenCalled();
   });
 
   it('shouldnt be accepted the cookies', () => {

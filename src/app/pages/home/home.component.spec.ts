@@ -1,15 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { firstValueFrom } from 'rxjs';
+
+import { TranslateService } from '@ngx-translate/core';
+
+import { UtilsService } from '@services/index';
 
 import { HomeComponent } from './home.component';
 
 import { SetupTest } from '@testing/index';
-import { TranslateService } from '@ngx-translate/core';
-import { firstValueFrom } from 'rxjs';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
   let translate: TranslateService;
+  let utilsService: UtilsService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule(SetupTest.GetConfig(HomeComponent)).compileComponents();
@@ -18,6 +22,7 @@ describe('HomeComponent', () => {
   });
 
   beforeEach(() => {
+    utilsService = TestBed.inject(UtilsService);
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -29,7 +34,9 @@ describe('HomeComponent', () => {
 
   it('should create - EN', async () => {
     await firstValueFrom(translate.use('en'));
+    component.ngOnInit();
     expect(component).toBeTruthy();
+    expect(component.infoIconDeveloper).toEqual(utilsService.getIconDeveloper());
   });
 
   afterAll(() => {

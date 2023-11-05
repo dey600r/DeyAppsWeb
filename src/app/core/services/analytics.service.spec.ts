@@ -24,10 +24,10 @@ describe('AnalyticsService', () => {
 
   // it('should initialice analytics', () => {
   //   spyOn(utilsService, 'isCookiesAccepted').and.returnValue(true);
-  //   //var firebaseGetAnalyitics = jasmine.createSpyObj(firebaseFunctions, ['getAnalytics']);
+  //   var firebaseGetAnalyitics = jasmine.createSpyObj(firebaseFunctions, ['getAnalytics']);
   //   // var firebaseGetAnalyitics = spyOn(firebaseFunctions, 'getAnalytics').and.returnValue({ app : {name : '', automaticDataCollectionEnabled: false, options: {}}});
   //   service.initializeApp();
-  //   //expect(firebaseGetAnalyitics.getAnalytics).toHaveBeenCalled();
-  //   expect(SetupTest.SpyConfig.analytics.getAnalytics).toHaveBeenCalled();
+  //   expect(firebaseGetAnalyitics.getAnalytics).toHaveBeenCalled();
+  //   //expect(SetupTest.SpyConfig.analytics.getAnalytics).toHaveBeenCalled();
   // });
 });

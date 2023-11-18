@@ -1,6 +1,9 @@
 <div class="header">
     <div class="sub-header">
         <h2>{{ 'COMMON.title' | translate }}</h2>
+        <p-button class="icon-version" icon="pi pi-question-circle" [rounded]="true" severity="secondary" 
+            [text]="true" [raised]="true" [life]="2000" 
+            tooltipEvent="focus" [pTooltip]="versionApp" tooltipPosition="left" (onClick)="showTooltip()"></p-button>
         <p-tabMenu [model]="items" [activeItem]="selectedItem" class="menu-height">
             <ng-template pTemplate="item" let-item let-i="index">
                 <em [class]="item.icon"></em>

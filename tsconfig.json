@@ -8,6 +8,8 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
@@ -17,36 +19,17 @@
       "dom"
     ],
     "paths": {
-      "@app/*": [
-        "src/app/*"
-      ],
-      "@environments/*": [
-        "src/environments/*"
-      ],
-      "@services/*": [
-        "src/app/core/services/*"
-      ],
-      "@models/*": [
-        "src/app/core/models/*"
-      ],
-      "@shared/*": [
-        "src/app/shared/*"
-      ],
-      "@pages/*": [
-        "src/app/pages/*"
-      ],
-      "@modules/*": [
-        "src/app/shared/modules/*"
-      ],
-      "@components/*": [
-        "src/app/shared/components/*"
-      ],
-      "@utils/*": [
-        "src/app/core/utils/*"
-      ],
-      "@testing/*": [
-        "src/testing/*"
-      ]
+      "@app/*": ["src/app/*"],
+      "@environments/*": ["src/environments/*"],
+      "@assets/*": ["src/assets/*"],
+      "@services/*": ["src/app/core/services/*"],
+      "@models/*": ["src/app/core/models/*"],
+      "@shared/*": ["src/app/shared/*"],
+      "@pages/*": ["src/app/pages/*"],
+      "@modules/*": ["src/app/shared/modules/*"],
+      "@components/*": ["src/app/shared/components/*"],
+      "@utils/*": ["src/app/core/utils/*"],
+      "@testing/*": ["src/testing/*"]
     },
     "useDefineForClassFields": false
   }

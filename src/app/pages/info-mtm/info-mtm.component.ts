@@ -1,11 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { UtilsService } from '@app/core/services/utils.service';
+
+// SERVICES
+import { UtilsService, AnalyticsService } from '@services/index';
 import { TranslateService } from '@ngx-translate/core';
+
+// MODELS
+import { 
+  InfoDeveloperModel, InfoIconModel, InfoTabModel, InfoProjectCardModel, InfoThemeModel,
+  InfoCardModel, InfoBaseIconModel
+ } from '@models/index';
+
+// UTILS
 import { environment } from '@environments/environment';
-import { InfoDeveloperModel, InfoIconModel, InfoTabModel, InfoProjectCardModel, InfoThemeModel, PictureModel } from '@models/index';
 import { Constants } from '@utils/constants';
-import { InfoCardModel } from '@app/core/models/info-card.model';
-import { InfoBaseIconModel } from '@app/core/models/info-base.model';
 
 @Component({
   selector: 'app-info-mtm',
@@ -24,10 +31,13 @@ export class InfoMtmComponent implements OnInit {
   infoMtM: InfoDeveloperModel = new InfoDeveloperModel();
 
   constructor(public translator: TranslateService,
-              private utilService: UtilsService) {
+              private utilService: UtilsService,
+              private analyticService: AnalyticsService) {
   }
 
   ngOnInit(): void {
+    this.analyticService.logEvent('load_info_MtM');
+
     const assetsIcon: string = environment.pathIcons;
 
     this.infoIconMtM = this.utilService.getIconMtm();
@@ -71,11 +81,14 @@ export class InfoMtmComponent implements OnInit {
       [environment.pathOthers, this.translator.currentLang, 'google_play.png']);
     const imgMicrosoftStore: string = this.utilService.joinPath(
       [environment.pathOthers, this.translator.currentLang, 'microsoft_store.png']);
+    const imgWebVersion: string = this.utilService.joinPath(
+      [environment.pathOthers, this.translator.currentLang, 'web_version.png']);
 
     if (this.translator.currentLang === Constants.LANGUAGE_EN) {
       this.infoLinksMtm = [
         new InfoBaseIconModel(imgGooglePlay, Constants.URL_MTM_ANDROID_EN, Constants.URL_MTM_ANDROID_EN),
-        new InfoBaseIconModel(imgMicrosoftStore, Constants.URL_MTM_WINDOWS_EN, Constants.URL_MTM_WINDOWS_EN)
+        new InfoBaseIconModel(imgMicrosoftStore, Constants.URL_MTM_WINDOWS_EN, Constants.URL_MTM_WINDOWS_EN),
+        new InfoBaseIconModel(imgWebVersion, Constants.URL_MTM_WEB, Constants.URL_MTM_WEB)
       ];
       this.infoLinksMtmFree = [
         new InfoBaseIconModel(imgGooglePlay, Constants.URL_MTM_FREE_ANDROID_EN, Constants.URL_MTM_FREE_ANDROID_EN),
@@ -84,7 +97,8 @@ export class InfoMtmComponent implements OnInit {
     } else {
       this.infoLinksMtm = [
         new InfoBaseIconModel(imgGooglePlay, Constants.URL_MTM_ANDROID_ES, Constants.URL_MTM_ANDROID_ES),
-        new InfoBaseIconModel(imgMicrosoftStore, Constants.URL_MTM_WINDOWS_ES, Constants.URL_MTM_WINDOWS_ES)
+        new InfoBaseIconModel(imgMicrosoftStore, Constants.URL_MTM_WINDOWS_ES, Constants.URL_MTM_WINDOWS_ES),
+        new InfoBaseIconModel(imgWebVersion, Constants.URL_MTM_WEB, Constants.URL_MTM_WEB)
       ];
       this.infoLinksMtmFree = [
         new InfoBaseIconModel(imgGooglePlay, Constants.URL_MTM_FREE_ANDROID_ES, Constants.URL_MTM_FREE_ANDROID_ES),

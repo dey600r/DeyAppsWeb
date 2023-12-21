@@ -1,8 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Constants } from '@utils/constants';
-import { TranslateService } from '@ngx-translate/core';
-import { InfoDeveloperModel, InfoIconModel, InfoProjectModel } from '@app/core/models';
 
+// SERVICES
+import { TranslateService } from '@ngx-translate/core';
+
+// SERVICES
+import { AnalyticsService, UtilsService } from '@services/index';
+
+// MODELS
+import { InfoDeveloperModel, InfoIconModel, InfoProjectModel } from '@models/index';
+
+// UTILS
+import { Constants } from '@utils/constants';
 import { environment } from '@environments/environment';
 
 @Component({
@@ -18,25 +26,29 @@ export class HomeComponent implements OnInit {
   infoSkills: InfoDeveloperModel = new InfoDeveloperModel();
   infoHobbies: InfoDeveloperModel = new InfoDeveloperModel();
 
-  constructor(private translator: TranslateService) {
+  constructor(private translator: TranslateService,
+              private analyticService: AnalyticsService,
+              private utilService: UtilsService) {
   }
 
   ngOnInit(): void {
+    this.analyticService.logEvent('load_home');
+
     const assetsIcon: string = environment.pathIcons;
 
-    this.infoIconDeveloper = new InfoIconModel(`${assetsIcon}/icon-developer.png`, '', 'icon-developer', '',
-      '', 'item-developer');
+    this.infoIconDeveloper = this.utilService.getIconDeveloper();
 
     this.infoDeveloper = new InfoDeveloperModel('HOME.titleInfoDeveloper', 'HOME.descriptionInfoDeveloper');
     this.infoProjects = new InfoProjectModel('HOME.titleProjects',
       new InfoDeveloperModel(
         'COMMON.MTM_LARGE', 'HOME.descriptionProjects',
         [new InfoIconModel('pi pi-eye', this.translator.instant('COMMON.MTM_LARGE'), 'MtM', Constants.ROUTE_INFO_MTM,
-          'button-gray'),
-        new InfoIconModel('pi pi-android', 'Android', 'MtM',
+          'button-gray-soft'),
+          new InfoIconModel('pi pi-android', 'Android', 'MtM',
           (this.translator.currentLang === Constants.LANGUAGE_EN ? Constants.URL_MTM_ANDROID_EN : Constants.URL_MTM_ANDROID_ES),
           'button-gray', '', true),
-          new InfoIconModel('pi pi-microsoft', 'Windows', 'MtM',
+        new InfoIconModel('pi pi-sitemap', 'Web', 'MtM', Constants.URL_MTM_WEB, 'button-gray-soft', '', true),
+        new InfoIconModel('pi pi-microsoft', 'Windows', 'MtM',
           (this.translator.currentLang === Constants.LANGUAGE_EN ? Constants.URL_MTM_WINDOWS_EN : Constants.URL_MTM_WINDOWS_ES),
           'button-gray', '', true)],
       ),

@@ -83,6 +83,35 @@ export class MockTranslate {
             userRightsDescription10: 'You also have the right to lodge a complaint with the competent supervisory authority (www.aepd.es) if you consider that the processing does not comply with the regulations in force.',
             legalInformation: 'LEGAL INFORMATION',
             legalInformationDescription: 'The requirements of this Policy supplement, and do not replace, any other requirements existing under applicable data protection law, which shall prevail in any event. This Policy is subject to periodic review and may be amended by the Company at any time. When this occurs, we will notify you of any changes and ask you to re-read the most recent version of our Policy and confirm your acceptance.'
+        },
+        COOKIES: {
+            cookies: "Cookies",
+            agree: "I agree",
+            popupDescription: "We use our own and third party cookies to obtain statistical data of the navigation of our users and improve our services.",
+            title: "COOKIES POLICY",
+            lastUpdate: "Last Update: November 2023",
+            description: "In compliance with the provisions of Article 22.2 of Law 34/2002, of July 11, 2002, on Information Society Services and Electronic Commerce, this website informs you, in this section, about the policy of collection and treatment of cookies.",
+            titleMeaning: "WHAT ARE COOKIES?",
+            descriptionMeaning: "A cookie is a file that is downloaded to your computer when you access certain web pages. Cookies allow a website, among other things, to store and retrieve information about the browsing habits of a user or their computer and, depending on the information they contain and the way you use your computer, can be used to recognize the user.",
+            titleType: "WHAT TYPES OF COOKIES DOES THIS WEBSITE USE?",
+            descriptionType1: "This website uses the following types of cookies:",
+            descriptionType2: "Analysis Cookies: These are those that well treated by us or by third parties, allow us to quantify the number of users and thus perform the measurement and statistical analysis of the use made by users of the service offered. To do this, your browsing on our website is analyzed in order to improve the supply of products or services that we offer.",
+            descriptionType3: "Technical Cookies: These are those that allow the user to navigate through the restricted area and the use of its different functions, such as, for example, to carry out the purchase process of an article.",
+            descriptionType4: "Personalization Cookies: These are those that allow the user to access the service with some general characteristics predefined according to a series of criteria in the user's terminal, such as the language or the type of browser through which the user connects to the service.",
+            descriptionType5: "Advertising Cookies: These are those that, either treated by this website or by third parties, allow us to manage as effectively as possible the supply of advertising spaces on the website, adapting the content of the advertisement to the content of the requested service or to the use you make of our website. To do this we can analyze your browsing habits on the Internet and we can show you advertising related to your browsing profile.",
+            descriptionType6: "Behavioral advertising cookies: These are those that allow the management, in the most effective way possible, of the advertising spaces that, where appropriate, the editor has included on a website, application or platform from which the requested service is provided. This type of cookies store information on the behavior of visitors obtained through the continuous observation of their browsing habits, which allows the development of a specific profile to display advertisements based on the same.",
+            titleDisable: "DISABLE COOKIES",
+            descriptionDisable: "You can allow, block or delete cookies installed on your computer by configuring the browser options installed on your computer. Most web browsers offer the possibility to allow, block or delete cookies installed on your computer. Below you can access the settings of the most common web browsers to accept, install or disable cookies:",
+            googleDisable: "Setting cookies in Google Chrome",
+            edgeDisable: "Setting cookies in Microsoft Edge",
+            firefoxDisable: "Setting cookies in Mozilla Firefox",
+            safariDisable: "Setting cookies in Safari",
+            titleThirds: "THIRD PARTY COOKIES",
+            descriptionThirds1: "This website uses third party services to collect information for statistical and web usage purposes. DoubleClick cookies are used to improve the advertising included on the website. They are used to target advertising according to the content that is relevant to a user, thus improving the quality of experience in the use of the same.",
+            descriptionThirds2: "Specifically, we use Google Adsense and Google Analytics services for our statistics and advertising. Some cookies are essential to the operation of the site, for example the built-in search engine.",
+            descriptionThirds3: "Our site includes other functionalities provided by third parties. You can easily share content on social networks such as Facebook, Twitter or Google +, with the buttons we have included for this purpose.",
+            titleWarning: "WARNING ABOUT DELETING COOKIES",
+            descriptionWarning: "You can delete and block all cookies from this site, but part of the site will not work or the quality of the web page may be affected. If you have any questions about our cookie policy, you can contact this website through our Contact Us channels."
         }
     };
     static ES = {
@@ -169,6 +198,35 @@ export class MockTranslate {
             userRightsDescription10: 'También tiene derecho a presentar una reclamación ante la Autoridad de control competente (www.aepd.es) si considera que el tratamiento no se ajusta a la normativa vigente.',
             legalInformation: 'INFORMACIÓN LEGAL',
             legalInformationDescription: 'Los requisitos de esta Política complementan, y no reemplazan, cualquier otro requisito existente bajo la ley de protección de datos aplicable, que será la que prevalezca en cualquier caso. Esta Política está sujeta a revisiones periódicas y la empresa puede modificarla en cualquier momento. Cuando esto ocurra, le avisaremos de cualquier cambio y le pediremos que vuelva a leer la versión más reciente de nuestra Política y que confirme su aceptación.'
+        },
+        COOKIES: {
+            cookies: "Cookies",
+            agree: "De acuerdo",
+            popupDescription: "Utilizamos cookies propias y de terceros para obtener datos estadísticos de la navegación de nuestros usuarios y mejorar nuestros servicios.",
+            title: "POLITICA DE COOKIES",
+            lastUpdate: "Última actualización: Noviembre 2023",
+            description: "En cumplimiento con lo dispuesto en el artículo 22.2 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico, esta página web le informa, en esta sección, sobre la política de recogida y tratamiento de cookies.",
+            titleMeaning: "¿QUÉ SON LAS COOKIES?",
+            descriptionMeaning: "Una cookie es un fichero que se descarga en su ordenador al acceder a determinadas páginas web. Las cookies permiten a una página web, entre otras cosas, almacenar y recuperar información sobre los hábitos de navegación de un usuario o de su equipo y, dependiendo de la información que contengan y de la forma en que utilice su equipo, pueden utilizarse para reconocer al usuario.",
+            titleType: "¿QUÉ TIPOS DE COOKIES UTILIZA ESTA PÁGINA WEB?",
+            descriptionType1: "Esta página web utiliza los siguientes tipos de cookies:",
+            descriptionType2: "Cookies de análisis: Son aquéllas que bien tratadas por nosotros o por terceros, nos permiten cuantificar el número de usuarios y así realizar la medición y análisis estadístico de la utilización que hacen los usuarios del servicio ofertado. Para ello se analiza su navegación en nuestra página web con el fin de mejorar la oferta de productos o servicios que le ofrecemos.",
+            descriptionType3: "Cookies técnicas: Son aquellas que permiten al usuario la navegación a través del área restringida y la utilización de sus diferentes funciones, como por ejemplo, llevar a cambio el proceso de compra de un artículo.",
+            descriptionType4: "Cookies de personalización: Son aquellas que permiten al usuario acceder al servicio con algunas características de carácter general predefinidas en función de una serie de criterios en el terminal del usuario como por ejemplo serian el idioma o el tipo de navegador a través del cual se conecta al servicio.",
+            descriptionType5: "Cookies publicitarias: Son aquéllas que, bien tratadas por esta web o por terceros, permiten gestionar de la forma más eficaz posible la oferta de los espacios publicitarios que hay en la página web, adecuando el contenido del anuncio al contenido del servicio solicitado o al uso que realice de nuestra página web. Para ello podemos analizar sus hábitos de navegación en Internet y podemos mostrarle publicidad relacionada con su perfil de navegación.",
+            descriptionType6: "Cookies de publicidad comportamental: Son aquellas que permiten la gestión, de la forma más eficaz posible, de los espacios publicitarios que, en su caso, el editor haya incluido en una página web, aplicación o plataforma desde la que presta el servicio solicitado. Este tipo de cookies almacenan información del comportamiento de los visitantes obtenida a través de la observación continuada de sus hábitos de navegación, lo que permite desarrollar un perfil específico para mostrar avisos publicitarios en función del mismo.",
+            titleDisable: "DESACTIVAR LAS COOKIES",
+            descriptionDisable: "Puede usted permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador instalado en su ordenador. En la mayoría de los navegadores web se ofrece la posibilidad de permitir, bloquear o eliminar las cookies instaladas en su equipo. A continuación puede acceder a la configuración de los navegadores webs más frecuentes para aceptar, instalar o desactivar las cookies:",
+            googleDisable: "Configurar cookies en Google Chrome",
+            edgeDisable: "Configurar cookies en Microsoft Edge",
+            firefoxDisable: "Configurar cookies en Mozilla Firefox",
+            safariDisable: "Configurar cookies en Safari",
+            titleThirds: "COOKIES DE TERCEROS",
+            descriptionThirds1: "Esta página web utiliza servicios de terceros para recopilar información con fines estadísticos y de uso de la web. Se usan cookies de DoubleClick para mejorar la publicidad que se incluye en el sitio web. Son utilizadas para orientar la publicidad según el contenido que es relevante para un usuario, mejorando así la calidad de experiencia en el uso del mismo.",
+            descriptionThirds2: "En concreto, usamos los servicios de Google Adsense y de Google Analytics para nuestras estadísticas y publicidad. Algunas cookies son esenciales para el funcionamiento del sitio, por ejemplo el buscador incorporado.",
+            descriptionThirds3: "Nuestro sitio incluye otras funcionalidades proporcionadas por terceros. Usted puede fácilmente compartir el contenido en redes sociales como Facebook, Twitter o Google +, con los botones que hemos incluido a tal efecto.",
+            titleWarning: "ADVERTENCIA SOBRE ELIMINAR COOKIES",
+            descriptionWarning: "Usted puede eliminar y bloquear todas las cookies de este sitio, pero parte del sitio no funcionará o la calidad de la página web puede verse afectada. Si tiene cualquier duda acerca de nuestra política de cookies, puede contactar con esta página web a través de nuestros canales de Contacto."
         }
     };
 }

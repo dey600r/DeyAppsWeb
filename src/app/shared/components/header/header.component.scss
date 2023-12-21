@@ -33,3 +33,17 @@
 .menu-height {
     max-height: 10px;
 }
+
+.header p-button {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+}
+
+.icon-version .p-button-icon {
+    color: var(--main-text-color);
+}
+
+.p-button:enabled:focus {
+    box-shadow: none;
+}

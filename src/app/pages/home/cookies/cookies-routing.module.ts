@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { MtmPrivacyPolicyComponent } from './mtm-privacy-policy.component';
+import { CookiesComponent } from './cookies.component';
 import { Constants } from '@utils/constants';
 
 const routes: Routes = [
   {
-    path: Constants.ROUTE_MTM_PRIVACIY_POLICY,
-    component: MtmPrivacyPolicyComponent
+    path: Constants.ROUTE_HOME_COOKIES,
+    component: CookiesComponent
   }
 ];
 
@@ -15,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MtmPrivacyPolicyRoutingModule {}
+export class CookiesRoutingModule {}

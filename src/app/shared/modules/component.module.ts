@@ -8,6 +8,7 @@ import { IconTabComponent } from '@components/icon-tab/icon-tab.component';
 import { IconListCardComponent } from '@components/icon-list-card/icon-list-card.component';
 import { IconLinksComponent } from '@components/icon-links/icon-links.component';
 import { IconHeaderComponent } from '@components/icon-header/icon-header.component';
+import { CookiesPopupComponent } from '@components/cookies-popup/cookies-popup.component';
 
 import { PrimengModule } from './primeng.module';
 
@@ -24,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     IconTabComponent,
     IconListCardComponent,
     IconLinksComponent,
-    IconHeaderComponent
+    IconHeaderComponent,
+    CookiesPopupComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     IconTabComponent,
     IconListCardComponent,
     IconLinksComponent,
-    IconHeaderComponent
+    IconHeaderComponent,
+    CookiesPopupComponent
   ],
   providers: []
 })

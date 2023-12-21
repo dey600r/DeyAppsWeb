@@ -1,8 +1,8 @@
 {
   "name": "DeyApps",
   "short_name": "DeyApps",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#686868",
+  "background_color": "#2A2A2A",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

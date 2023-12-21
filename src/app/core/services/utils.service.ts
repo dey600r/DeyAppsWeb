@@ -35,4 +35,17 @@ export class UtilsService {
   getIconMtm() {
     return new InfoIconModel(this.joinPath([environment.pathIcons, 'icon.png']), '', 'icon-mtm', '', '', 'item-mtm');
   }
+
+  getIconDeveloper() {
+    return new InfoIconModel(this.joinPath([environment.pathIcons, 'icon-developer.png']), '', 'icon-developer', '', '', 'item-developer');
+  }
+
+  isCookiesAccepted(): boolean {
+    const accepted: string = localStorage.getItem(Constants.LOCAL_STORAGE_COOKIES_ACCEPTED);
+    return (accepted !== null && accepted !== undefined && accepted === "true");
+  }
+
+  acceptCookies() {
+    localStorage.setItem(Constants.LOCAL_STORAGE_COOKIES_ACCEPTED, "true");
+  }
 }

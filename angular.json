@@ -79,18 +79,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "DeyApps:build"
+            "buildTarget": "DeyApps:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "DeyApps:build:production"
+              "buildTarget": "DeyApps:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "DeyApps:build"
+            "buildTarget": "DeyApps:build"
           }
         },
         "test": {

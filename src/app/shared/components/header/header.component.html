@@ -4,11 +4,6 @@
         <p-button class="icon-version" icon="pi pi-question-circle" [rounded]="true" severity="secondary" 
             [text]="true" [raised]="true" [life]="2000" 
             tooltipEvent="focus" [pTooltip]="versionApp" tooltipPosition="left" (onClick)="showTooltip()"></p-button>
-        <p-tabMenu [model]="items" [activeItem]="selectedItem" class="menu-height">
-            <ng-template pTemplate="item" let-item let-i="index">
-                <em [class]="item.icon"></em>
-                <span style="padding-left: 4px;">{{ item.label }}</span>
-            </ng-template>
-        </p-tabMenu>
+        <p-tabMenu [model]="items" [activeItem]="selectedItem" class="menu-height"></p-tabMenu>
     </div>
 </div>

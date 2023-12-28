@@ -32,11 +32,14 @@ module.exports = {
         "@typescript-eslint/semi": "off",
         "@typescript-eslint/prefer-nullish-coalescing": "off",
         "@typescript-eslint/strict-boolean-expressions": "off",
-        "@typescript-eslint/consistent-type-imports": "warn",
+        "@typescript-eslint/consistent-type-imports": "off",
         "@typescript-eslint/indent": "warn",
         "padded-blocks": "warn",
         "array-bracket-spacing": "warn",
         "prefer-const": "error",
-        "@typescript-eslint/space-before-function-paren": "warn"
+        "space-in-parens": "warn",
+        "@typescript-eslint/space-before-function-paren": "warn",
+        "@typescript-eslint/no-extraneous-class": "warn",
+        "@typescript-eslint/prefer-readonly": "warn"
     }
 }

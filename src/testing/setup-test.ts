@@ -16,12 +16,15 @@ import { DialogModule } from 'primeng/dialog';
 // LIBRARIES
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import * as firebaseFunctions from "firebase/analytics";
+// import * as firebaseFunctions from "firebase/analytics";
 
 import { environment } from '@environments/environment';
 
-export class SetupTest {
+const createTranslateLoader = (http: HttpClient): TranslateHttpLoader => {
+  return new TranslateHttpLoader(http, environment.pathTranslate, '.json');
+}
 
+export class SetupTest {
   // public static SpyConfig = {
   //   analytics: jasmine.createSpyObj(firebaseFunctions, ['getAnalytics'])
   // };
@@ -50,10 +53,10 @@ export class SetupTest {
       ],
       providers: [
         TranslateService,
-        ChangeDetectorRef,
+        ChangeDetectorRef
         // { provide: firebaseFunctions, useValue: SetupTest.SpyConfig.analytics }
       ],
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA ]
   };
 
   public static GetConfig(component: any): any {
@@ -67,9 +70,4 @@ export class SetupTest {
     result.declarations = components;
     return result;
   }
-}
-
-// tslint:disable-next-line: typedef
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, environment.pathTranslate, '.json');
 }

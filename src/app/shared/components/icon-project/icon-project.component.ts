@@ -23,5 +23,5 @@ export class IconProjectComponent {
     } else {
       this.router.navigateByUrl(url.href);
     }
- }
+  }
 }

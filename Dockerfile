@@ -1,4 +1,4 @@
-FROM node:16-bullseye-slim
+FROM node:18.16.0-alpine3.17
 
 USER root
 RUN npm install -g http-server

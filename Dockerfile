@@ -1,21 +1,25 @@
-FROM node:18.16.0-alpine3.17
+# Stage 1: Compile and Build angular codebase
 
-USER root
-RUN npm install -g http-server
+FROM node:18.16.0-alpine3.17 as build
 
-USER node
-RUN mkdir -p /home/node/app /tmp/app
-WORKDIR /tmp/app
+WORKDIR /app
+RUN echo "INSTALL LIBRARIES"
+COPY package*.json ./
+RUN npm install
 
+RUN echo "BUILD PROD"
 COPY --chown=node . .
+RUN npm run build --prod
 
-ENV NODE_OPTIONS=--max-old-space-size=1024
-RUN echo "NodeJS $(node -v) memory config:" && node -p "v8.getHeapStatistics()"
-RUN npm i
-RUN npm run build && mv dist/DeyApps/* /home/node/app && rm -fr /tmp/app
+# Stage 2: Serve app with nginx server
+FROM nginxinc/nginx-unprivileged
 
-WORKDIR /home/node/app
+#COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx-def.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 8080
+#WORKDIR /code
 
-CMD [ "http-server", "./" ]
+COPY --from=build /app/dist/DeyApps/ /usr/share/nginx/html
+
+EXPOSE 8080:8080
+CMD ["nginx", "-g", "daemon off;"]

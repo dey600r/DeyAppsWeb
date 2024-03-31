@@ -36,4 +36,4 @@ node_modules
 
 package-lock.json
 www/index.html
-src/assets/firebase/login-firebase.json
+src/assets/firebase/private-login-firebase.json

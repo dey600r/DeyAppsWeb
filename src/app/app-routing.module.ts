@@ -17,6 +17,10 @@ export const routes: Routes = [
     loadChildren: () => import('./pages/info-mtm/info-mtm.module').then(m => m.InfoMtmModule),
   },
   {
+    path: Constants.ROUTE_SMARTCHAT_PRIVACY_POLICY,
+    loadChildren: () => import('./pages/other/smartchat-policy/smartchat-policy.module').then(m => m.SmartchatPolicyModule),
+  },
+  {
     path: '**',
     redirectTo: Constants.ROUTE_HOME
   },

@@ -2,6 +2,7 @@ export class Constants {
   static ROUTE_HOME = 'home';
   static ROUTE_HOME_COOKIES = 'cookies';
   static ROUTE_INFO_MTM = 'infomtm';
+  static ROUTE_SMARTCHAT_PRIVACY_POLICY = 'smartchat-privacypolicy';
   static ROUTE_MTM_PRIVACIY_POLICY = 'privacypolicy';
 
   static getRoutePrivacyPolicy(): string {

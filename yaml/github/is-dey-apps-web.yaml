@@ -1,0 +1,9 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: is-dey-apps-web-git-manual
+  namespace: dey-apps
+  labels:
+    app: dey-apps-web-git-manual
+    app.kubernetes.io/part-of: test-manual
+

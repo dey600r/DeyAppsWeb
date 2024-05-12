@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-dey-apps-web-git-manual
+  namespace: dey-apps
+  labels:
+    app: dey-apps-web-git-manual
+    app.kubernetes.io/part-of: test-manual
+spec:
+  selector:
+    app: dey-apps-web-git-manual
+  ports:
+    - name: 80-tcp
+      protocol: TCP
+      port: 80
+      targetPort: 80
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080

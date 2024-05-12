@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dp-dey-apps-web
+  namespace: dey-apps-docker2
+  labels:
+    app: app-dey-apps-web
+spec:
+  selector:
+    matchLabels:
+      app: app-dey-apps-web
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: app-dey-apps-web
+    spec:
+      containers:
+        - name: nginx-dey-apps-web
+          image: dey125r/dey-apps-web-openshift:v3
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
+  triggers:
+    - type: "ImageChange"
+      imageChangeParams:
+        automatic: true
+        containerNames:
+          - nginx-dey-apps-web
+        from:
+          kind: ImageStreamTag
+          name: is-dey-apps-web:latest
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

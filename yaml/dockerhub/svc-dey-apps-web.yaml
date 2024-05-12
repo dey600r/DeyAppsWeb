@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-dey-apps-web
+  namespace: dey-apps-docker2
+  labels:
+    app: app-dey-apps-web
+spec:
+  selector:
+    app: app-dey-apps-web
+  ports:
+    - name: 80-tcp
+      protocol: TCP
+      port: 80
+      targetPort: 80
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080

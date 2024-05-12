@@ -1,0 +1,37 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: bc-dey-apps-web-git-manual
+  namespace: dey-apps
+  labels:
+    name: dey-apps-web-git-manual
+    app.kubernetes.io/part-of: test-manual
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'is-dey-apps-web-git-manual:latest'
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+  postCommit: {}
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/dey600r/DeyAppsWeb.git'
+      ref: develop
+  triggers:
+    - type: Generic
+      generic:
+        secretReference:
+          name: dey-apps-web-git-generic-webhook-secret
+    - type: GitHub
+      github:
+        secretReference:
+          name: dey-apps-web-git-github-webhook-secret
+    - type: ConfigChange
+  runPolicy: Serial

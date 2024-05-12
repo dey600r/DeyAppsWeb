@@ -1,0 +1,10 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: firebase-login
+  namespace: dey-apps
+  labels:
+    app: dey-apps-web-git-manual
+    app.kubernetes.io/part-of: test-manual
+data:
+  firebase-login.json: "{\r\n    \"apiKey\": \"<KEY>\",\r\n    \"authDomain\": \"deyapps-a0de1.firebaseapp.com\",\r\n    \"projectId\": \"deyapps-a0de1\",\r\n    \"storageBucket\": \"deyapps-a0de1.appspot.com\",\r\n    \"messagingSenderId\": \"<KEY>\",\r\n    \"appId\": \"<KEY>\",\r\n    \"measurementId\": \"<KEY>\"\r\n  }"

@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SmartchatPolicyRoutingModule } from './smartchat-policy-routing.module';
+import { MyExperienceRoutingModule } from './my-experience-routing.module';
 
+import { MyExperienceComponent } from './my-experience.component';
 import { ComponentModule } from '@modules/component.module';
 
 import { PrimengModule } from '@shared/modules/primeng.module';
@@ -9,18 +10,16 @@ import { PrimengModule } from '@shared/modules/primeng.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { TranslateModule } from '@ngx-translate/core';
-import { SmartchatPolicyComponent } from './smartchat-policy.component';
 
 @NgModule({
-  declarations: [ SmartchatPolicyComponent ],
+  declarations: [ MyExperienceComponent ],
   imports: [
     PrimengModule,
     CommonModule,
-    SmartchatPolicyRoutingModule,
+    MyExperienceRoutingModule,
     HttpClientModule,
     ComponentModule,
     TranslateModule.forChild()
-  ],
-  providers: [ ]
+  ]
 })
-export class SmartchatPolicyModule { }
+export class MyExperienceModule { }

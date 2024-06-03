@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SmartchatPolicyComponent } from './smartchat-policy.component';
+import { MyExperienceComponent } from './my-experience.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: SmartchatPolicyComponent
+    component: MyExperienceComponent
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class SmartchatPolicyRoutingModule {}
+export class MyExperienceRoutingModule { }

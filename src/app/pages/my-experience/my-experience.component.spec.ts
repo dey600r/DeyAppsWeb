@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SmartchatPolicyComponent } from './smartchat-policy.component';
+import { MyExperienceComponent } from './my-experience.component';
 
-describe('SmartchatPolicyComponent', () => {
-  let component: SmartchatPolicyComponent;
-  let fixture: ComponentFixture<SmartchatPolicyComponent>;
+describe('MyExperienceComponent', () => {
+  let component: MyExperienceComponent;
+  let fixture: ComponentFixture<MyExperienceComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SmartchatPolicyComponent]
+      imports: [MyExperienceComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(SmartchatPolicyComponent);
+    fixture = TestBed.createComponent(MyExperienceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

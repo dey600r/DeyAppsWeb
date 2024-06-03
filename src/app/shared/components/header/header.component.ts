@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { Location } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 
 import { MenuItem } from 'primeng/api';
 import { Constants } from '@app/core/utils/constants';
-import { Router, Event } from '@angular/router';
+import { Router, Event, RouterEvent, NavigationStart } from '@angular/router';
 import cssVars from 'css-vars-ponyfill';
 import { Tooltip } from 'primeng/tooltip';
 import { environment } from '@environments/environment';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -24,8 +24,7 @@ export class HeaderComponent implements OnInit {
 
   versionApp: string = `v${environment.lastVersion} - ${environment.lastUpdate}`;
 
-  constructor(private location: Location,
-              private router: Router,
+  constructor(private router: Router,
               private translator: TranslateService) {
     cssVars();
   }
@@ -38,17 +37,25 @@ export class HeaderComponent implements OnInit {
         routerLink: [Constants.ROUTE_HOME]
       },
       {
+        label: this.translator.instant('COMMON.myexperience'),
+        icon: 'pi pi-fw pi-id-card',
+        routerLink: [Constants.ROUTE_MY_EXPERIENCE]
+      },
+      {
         label: this.translator.instant('COMMON.infoMtm'),
         icon: 'icon-mtm',
         routerLink: [Constants.ROUTE_INFO_MTM]
       }
     ];
-    this.router.events.subscribe((event: Event) => {
-      if (this.location.path().includes(Constants.ROUTE_INFO_MTM)) {
-        this.selectedItem = this.items[1];
-      } else {
+    
+    this.router.events.pipe(
+        filter((e: Event | RouterEvent): e is NavigationStart => e instanceof NavigationStart)
+    ).subscribe((event: NavigationStart) => {
+      const currentPath = this.items.find(x => event.url.includes(x.routerLink));
+      if(currentPath) 
+        this.selectedItem = currentPath;
+      else
         this.selectedItem = this.items[0];
-      }
     });
   }
 

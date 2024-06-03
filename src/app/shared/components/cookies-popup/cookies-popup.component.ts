@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
+import { Router, Event } from '@angular/router';
 
 // SERVICES
 import { UtilsService, AnalyticsService } from '@services/index';
@@ -16,9 +18,16 @@ export class CookiesPopupComponent {
   routeDeyAppsCookies: string = Constants.getRouteCookies();
   cookiesAccepted: boolean = false;
 
-  constructor(private utilsService: UtilsService,
+  constructor(private location: Location,
+              private router: Router,
+              private utilsService: UtilsService,
               private analyticService: AnalyticsService) {
-    this.checkCookies();
+    this.router.events.subscribe((event: Event) => {
+      if(this.location.path().includes(Constants.ROUTE_HOME_COOKIES)) 
+        this.cookiesAccepted = true;
+      else
+        this.checkCookies();
+    });
   }
 
   acceptCookies() {

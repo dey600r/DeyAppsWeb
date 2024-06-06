@@ -3,7 +3,6 @@ export class Constants {
   static readonly ROUTE_HOME_COOKIES = 'cookies';
   static readonly ROUTE_INFO_MTM = 'infomtm';
   static readonly ROUTE_MTM_PRIVACIY_POLICY = 'privacypolicy';
-  static readonly ROUTE_MY_EXPERIENCE = 'myexperience';
 
   static getRoutePrivacyPolicy(): string {
     return `/${this.ROUTE_INFO_MTM}/${this.ROUTE_MTM_PRIVACIY_POLICY}`;

@@ -37,11 +37,6 @@ export class HeaderComponent implements OnInit {
         routerLink: [Constants.ROUTE_HOME]
       },
       {
-        label: this.translator.instant('COMMON.myexperience'),
-        icon: 'pi pi-fw pi-id-card',
-        routerLink: [Constants.ROUTE_MY_EXPERIENCE]
-      },
-      {
         label: this.translator.instant('COMMON.infoMtm'),
         icon: 'icon-mtm',
         routerLink: [Constants.ROUTE_INFO_MTM]

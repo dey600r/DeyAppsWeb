@@ -17,10 +17,6 @@ export const routes: Routes = [
     loadChildren: () => import('./pages/info-mtm/info-mtm.module').then(m => m.InfoMtmModule),
   },
   {
-    path: Constants.ROUTE_MY_EXPERIENCE,
-    loadChildren: () => import('./pages/my-experience/my-experience.module').then(m => m.MyExperienceModule),
-  },
-  {
     path: '**',
     redirectTo: Constants.ROUTE_HOME
   },

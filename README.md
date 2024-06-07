@@ -12,3 +12,15 @@ Project is created with:
 * Jasmine and Karma
 
 ![DeyAppsHome](./images_readme/Captura.PNG)
+
+## Environment on Docker
+
+![DeyAppsHome-Docker](./images_readme/Captura2.PNG)
+
+## Continuous Integration & Continuous Delivery
+
+![DeyAppsHome-Jenkins](./images_readme/Captura1.PNG)
+
+## Quality with SonarQube
+
+![DeyAppsHome-SonarQube](./images_readme/Captura3.PNG)

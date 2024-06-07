@@ -4,7 +4,7 @@ DeyApps is a content website. It shows a brief description of the programmer, ho
 * [DeyAppsWeb](https://deyapps-a0de1.web.app/home)
 
 ## Technologies
-Proyect is created with:
+Project is created with:
 * Visual Code
 * HTML5, SCSS3 y Typescript
 * Angular 13

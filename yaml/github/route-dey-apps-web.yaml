@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: route-dey-apps-web-git-manual
+  namespace: dey-apps
+  labels:
+    app: dey-apps-web-git-manual
+    app.kubernetes.io/part-of: test-manual
+spec:
+  host: dey-apps-web-git-manual.apps-crc.testing
+  to:
+    kind: Service
+    name: svc-dey-apps-web-git-manual
+  port:
+    targetPort: 8080-tcp
+  tls:
+    termination: edge
+    wildcardPolicy: None

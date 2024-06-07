@@ -1,0 +1,44 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: dp-dey-apps-web-git-manual
+  namespace: dey-apps
+  labels:
+    app: dey-apps-web-git-manual
+    app.kubernetes.io/part-of: test-manual
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dey-apps-web-git-manual
+  template:
+    metadata:
+      labels:
+        app: dey-apps-web-git-manual
+    spec:
+      volumes:
+        - name: vol-firebase-login
+          configMap:
+            name: firebase-login
+      containers:
+        - name: dey-apps-web-git-manual
+          image: image-registry.openshift-image-registry.svc:5000/dey-apps/is-dey-apps-web-git-manual:latest
+          resources:
+            limits:
+              ephemeral-storage: 8Gi
+            requests:
+              ephemeral-storage: 4Gi
+          volumeMounts:
+            - name: vol-firebase-login
+              mountPath: /home/node/app/assets/firebase/
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

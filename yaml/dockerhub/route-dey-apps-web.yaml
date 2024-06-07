@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: route-dey-apps-web
+  namespace: dey-apps-docker2
+  labels:
+    app: app-dey-apps-web
+spec:
+  host: dey-apps-web-docker.apps-crc.testing
+  to:
+    kind: Service
+    name: svc-dey-apps-web
+  port:
+    targetPort: 8080-tcp
+  tls:
+    termination: edge
+    wildcardPolicy: None

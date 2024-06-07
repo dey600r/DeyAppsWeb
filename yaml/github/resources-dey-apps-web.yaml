@@ -1,0 +1,14 @@
+kind: ResourceQuota
+apiVersion: v1
+metadata:
+  name: rq-dey-apps-web-git-manual
+  namespace: dey-apps
+  labels:
+    app: dey-apps-web-git-manual
+    app.kubernetes.io/part-of: test-manual
+spec:
+  hard:
+    limits.ephemeral-storage: 48Gi
+    pods: '4'
+    requests.ephemeral-storage: 24Gi
+

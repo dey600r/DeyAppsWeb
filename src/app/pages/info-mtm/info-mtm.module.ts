@@ -7,19 +7,13 @@ import { ComponentModule } from '@modules/component.module';
 
 import { PrimengModule } from '@shared/modules/primeng.module';
 
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { TranslateModule } from '@ngx-translate/core';
 
-@NgModule({
-  declarations: [InfoMtmComponent],
-  imports: [
-    PrimengModule,
-    CommonModule,
-    InfoMtmRoutingModule,
-    HttpClientModule,
-    ComponentModule,
-    TranslateModule.forChild()
-  ]
-})
+@NgModule({ declarations: [InfoMtmComponent], imports: [PrimengModule,
+        CommonModule,
+        InfoMtmRoutingModule,
+        ComponentModule,
+        TranslateModule.forChild()], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class InfoMtmModule { }

@@ -7,27 +7,20 @@ import { BackgroundHeaderComponent } from '@components/background-header/backgro
 
 import { PrimengModule } from './primeng.module';
 
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { TranslateModule } from '@ngx-translate/core';
 
-@NgModule({
-  declarations: [
-    HeaderComponent,
-    FooterComponent,
-    BackgroundHeaderComponent
-  ],
-  imports: [
-    CommonModule,
-    PrimengModule,
-    HttpClientModule,
-    TranslateModule.forChild()
-  ],
-  exports: [
-    HeaderComponent,
-    FooterComponent,
-    BackgroundHeaderComponent
-  ],
-  providers: []
-})
+@NgModule({ declarations: [
+        HeaderComponent,
+        FooterComponent,
+        BackgroundHeaderComponent
+    ],
+    exports: [
+        HeaderComponent,
+        FooterComponent,
+        BackgroundHeaderComponent
+    ], imports: [CommonModule,
+        PrimengModule,
+        TranslateModule.forChild()], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class MainModule { }

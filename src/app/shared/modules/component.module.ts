@@ -13,39 +13,32 @@ import { CookiesPopupComponent } from '@components/cookies-popup/cookies-popup.c
 import { PrimengModule } from './primeng.module';
 
 import { TranslateModule } from '@ngx-translate/core';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-@NgModule({
-  declarations: [
-    IconDocComponent,
-    IconProjectComponent,
-    IconCarouselComponent,
-    IconTabComponent,
-    IconListCardComponent,
-    IconLinksComponent,
-    IconHeaderComponent,
-    CookiesPopupComponent
-  ],
-  imports: [
-    CommonModule,
-    PrimengModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    TranslateModule.forChild()
-  ],
-  exports: [
-    IconDocComponent,
-    IconProjectComponent,
-    IconCarouselComponent,
-    IconTabComponent,
-    IconListCardComponent,
-    IconLinksComponent,
-    IconHeaderComponent,
-    CookiesPopupComponent
-  ],
-  providers: []
-})
+@NgModule({ declarations: [
+        IconDocComponent,
+        IconProjectComponent,
+        IconCarouselComponent,
+        IconTabComponent,
+        IconListCardComponent,
+        IconLinksComponent,
+        IconHeaderComponent,
+        CookiesPopupComponent
+    ],
+    exports: [
+        IconDocComponent,
+        IconProjectComponent,
+        IconCarouselComponent,
+        IconTabComponent,
+        IconListCardComponent,
+        IconLinksComponent,
+        IconHeaderComponent,
+        CookiesPopupComponent
+    ], imports: [CommonModule,
+        PrimengModule,
+        FormsModule,
+        ReactiveFormsModule,
+        TranslateModule.forChild()], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class ComponentModule { }

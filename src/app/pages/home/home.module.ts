@@ -8,20 +8,13 @@ import { ComponentModule } from '@modules/component.module';
 
 import { PrimengModule } from '@shared/modules/primeng.module';
 
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { TranslateModule } from '@ngx-translate/core';
 
-@NgModule({
-  declarations: [ HomeComponent ],
-  imports: [
-    PrimengModule,
-    CommonModule,
-    HomeRoutingModule,
-    HttpClientModule,
-    ComponentModule,
-    TranslateModule.forChild()
-  ],
-  providers: [ ]
-})
+@NgModule({ declarations: [HomeComponent], imports: [PrimengModule,
+        CommonModule,
+        HomeRoutingModule,
+        ComponentModule,
+        TranslateModule.forChild()], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class HomeModule { }

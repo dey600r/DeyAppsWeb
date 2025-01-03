@@ -31,8 +31,8 @@ export class InfoMtmComponent implements OnInit {
   infoMtM: InfoDeveloperModel = new InfoDeveloperModel();
 
   constructor(public translator: TranslateService,
-              private utilService: UtilsService,
-              private analyticService: AnalyticsService) {
+              private readonly utilService: UtilsService,
+              private readonly analyticService: AnalyticsService) {
   }
 
   ngOnInit(): void {

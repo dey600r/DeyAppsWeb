@@ -26,9 +26,9 @@ export class HomeComponent implements OnInit {
   infoSkills: InfoDeveloperModel = new InfoDeveloperModel();
   infoHobbies: InfoDeveloperModel = new InfoDeveloperModel();
 
-  constructor(private translator: TranslateService,
-              private analyticService: AnalyticsService,
-              private utilService: UtilsService) {
+  constructor(private readonly translator: TranslateService,
+              private readonly analyticService: AnalyticsService,
+              private readonly utilService: UtilsService) {
   }
 
   ngOnInit(): void {

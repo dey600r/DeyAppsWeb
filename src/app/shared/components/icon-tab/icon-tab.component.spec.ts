@@ -53,7 +53,7 @@ describe('IconTabComponent', () => {
   it('should click event change theme', () => {
     spyOn(component, 'changeInfoCarousel');
     const radioButtons = fixture.debugElement.nativeElement.querySelectorAll('p-radioButton');
-    radioButtons[0].childNodes[0].childNodes[0].childNodes[0].click();
+    radioButtons[0].childNodes[0].childNodes[0].click();
     fixture.detectChanges();
     expect(component.changeInfoCarousel).toHaveBeenCalled();
   });

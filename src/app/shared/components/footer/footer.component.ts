@@ -17,8 +17,8 @@ export class FooterComponent implements OnInit {
 
   selectedRoute: any = {}
 
-  constructor(private location: Location,
-              private router: Router) {}
+  constructor(private readonly location: Location,
+              private readonly router: Router) {}
               
   ngOnInit(): void {
     cssVars();

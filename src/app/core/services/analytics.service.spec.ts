@@ -13,7 +13,7 @@ describe('AnalyticsService', () => {
   let utilsService: UtilsService;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule(SetupTest.config);
+    TestBed.configureTestingModule(SetupTest.GetConfigs([]));
     service = TestBed.inject(AnalyticsService);
     utilsService = TestBed.inject(UtilsService);
   });

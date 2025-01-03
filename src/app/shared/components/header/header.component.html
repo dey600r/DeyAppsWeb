@@ -4,6 +4,15 @@
         <p-button class="icon-version" icon="pi pi-question-circle" [rounded]="true" severity="secondary" 
             [text]="true" [raised]="true" [life]="2000" 
             tooltipEvent="focus" [pTooltip]="versionApp" tooltipPosition="left" (onClick)="showTooltip()"></p-button>
-        <p-tabMenu [model]="items" [activeItem]="selectedItem" class="menu-height"></p-tabMenu>
+        <p-tabs [value]="selectedItem" (valueChange)="onTabChange($event)">
+            <p-tablist>
+                @for(tab of items; track tab.label){
+                    <p-tab [value]="tab" [routerLink]="tab.routerLink">
+                        <i [class]="tab.icon"></i>
+                        <span>{{ tab.label }}</span>
+                    </p-tab>
+                }
+            </p-tablist>
+        </p-tabs>
     </div>
 </div>

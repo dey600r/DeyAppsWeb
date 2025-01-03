@@ -11,7 +11,8 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 
 import { TranslateModule } from '@ngx-translate/core';
 
-@NgModule({ declarations: [
+@NgModule({ 
+    declarations: [
         HeaderComponent,
         FooterComponent,
         BackgroundHeaderComponent
@@ -20,7 +21,14 @@ import { TranslateModule } from '@ngx-translate/core';
         HeaderComponent,
         FooterComponent,
         BackgroundHeaderComponent
-    ], imports: [CommonModule,
+    ], 
+    imports: [
+        CommonModule,
         PrimengModule,
-        TranslateModule.forChild()], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        TranslateModule.forChild()
+    ], 
+    providers: [
+        provideHttpClient(withInterceptorsFromDi())
+    ] 
+})
 export class MainModule { }

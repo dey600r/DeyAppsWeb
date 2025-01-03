@@ -15,8 +15,8 @@ export class MtmPrivacyPolicyComponent implements OnInit {
 
   infoIconMtM: InfoIconModel = new InfoIconModel();
 
-  constructor(private utilService: UtilsService,
-              private analyticService: AnalyticsService) { }
+  constructor(private readonly utilService: UtilsService,
+              private readonly analyticService: AnalyticsService) { }
 
   ngOnInit(): void {
     this.analyticService.logEvent('load_privacy_policy');

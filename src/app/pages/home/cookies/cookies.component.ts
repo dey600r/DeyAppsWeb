@@ -26,8 +26,8 @@ export class CookiesComponent implements OnInit {
   linkDisableCookiesFirefox: string = '';
   linkDisableCookiesSafari: string = '';
 
-  constructor(private utilService: UtilsService,
-              private translator: TranslateService) {}
+  constructor(private readonly utilService: UtilsService,
+              private readonly translator: TranslateService) {}
 
   ngOnInit(): void {
     this.infoIconDeveloper = this.utilService.getIconDeveloper();

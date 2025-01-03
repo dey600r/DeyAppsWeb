@@ -18,7 +18,7 @@ export class IconCarouselComponent implements OnChanges {
   displayModal = false;
   selectedPicture: PictureModel = new PictureModel();
 
-  constructor(private utilService: UtilsService) {
+  constructor(private readonly utilService: UtilsService) {
   }
 
   ngOnChanges(): void {

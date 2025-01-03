@@ -17,7 +17,8 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-@NgModule({ declarations: [
+@NgModule({ 
+    declarations: [
         IconDocComponent,
         IconProjectComponent,
         IconCarouselComponent,
@@ -36,9 +37,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         IconLinksComponent,
         IconHeaderComponent,
         CookiesPopupComponent
-    ], imports: [CommonModule,
+    ], 
+    imports: [
+        CommonModule,
         PrimengModule,
         FormsModule,
         ReactiveFormsModule,
-        TranslateModule.forChild()], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        TranslateModule.forChild()
+    ], 
+    providers: [
+        provideHttpClient(withInterceptorsFromDi())
+    ] 
+})
 export class ComponentModule { }

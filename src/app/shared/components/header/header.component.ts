@@ -24,8 +24,8 @@ export class HeaderComponent implements OnInit {
 
   versionApp: string = `v${environment.lastVersion} - ${environment.lastUpdate}`;
 
-  constructor(private router: Router,
-              private translator: TranslateService) {
+  constructor(private readonly router: Router,
+              private readonly translator: TranslateService) {
     cssVars();
   }
 
@@ -52,6 +52,10 @@ export class HeaderComponent implements OnInit {
       else
         this.selectedItem = this.items[0];
     });
+  }
+  
+  onTabChange(event: any) {
+    this.router.navigate(event.routerLink);
   }
 
   showTooltip() {

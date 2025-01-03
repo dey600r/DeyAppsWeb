@@ -11,16 +11,17 @@ import { IconTabComponent } from '@components/icon-tab/icon-tab.component';
 import { IconListCardComponent } from '@components/icon-list-card/icon-list-card.component';
 import { IconLinksComponent } from '@components/icon-links/icon-links.component';
 import { IconHeaderComponent } from '@components/icon-header/icon-header.component';
+import { CookiesPopupComponent } from '@components/cookies-popup/cookies-popup.component';
 
 describe('InfoMtmComponent', () => {
   let component: InfoMtmComponent;
   let fixture: ComponentFixture<InfoMtmComponent>;
   let translate: TranslateService;
 
-  beforeEach(async () => {
+  beforeEach(async() => {
     await TestBed.configureTestingModule(SetupTest.GetConfig([
       InfoMtmComponent, IconDocComponent, IconProjectComponent, IconCarouselComponent, IconTabComponent,
-      IconListCardComponent, IconLinksComponent, IconHeaderComponent
+      IconListCardComponent, IconLinksComponent, IconHeaderComponent, CookiesPopupComponent
     ])).compileComponents();
     translate = TestBed.inject(TranslateService);
     await firstValueFrom(translate.use('es'));

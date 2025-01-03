@@ -14,7 +14,7 @@ describe('UtilsService', () => {
   let translate: TranslateService;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule(SetupTest.config);
+    TestBed.configureTestingModule(SetupTest.GetConfigs([]));
     service = TestBed.inject(UtilsService);
     translate = TestBed.inject(TranslateService);
     await firstValueFrom(translate.use('es'));

@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+@import "primeflex/primeflex.css";
 
 /* STYLE MAIN CONTAINERS */
 
@@ -83,47 +85,6 @@ li a.p-menuitem-link.p-ripple {
 ::-webkit-scrollbar-thumb {
     background: var(--main-selected-color);
     border-radius: 10px;
-}
-
-/* HEADER TAB MENU */
-
-.p-tabmenu {
-    overflow-x: visible !important;
-}
-
-.p-tabmenu .p-tabmenu-nav {
-    background: var(--main-color);
-    border: #dee2e6;
-    border-width: 0 0 2px 0;
-}
-
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link,
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
-    background: var(--main-color);
-    color: var(--main-text-color);
-    border-color:  var(--main-text-color);
-    padding: 0.8rem;
-    margin: 0;
-}
-
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem:not(.p-highlight):not(.p-disabled):hover .p-menuitem-link {
-    background-color: var(--main-selected-hover-color);
-    background: var(--main-selected-hover-color);
-    color: var(--main-text-selected-hover-color);
-}
-
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link.p-menuitem-link-active {
-    background: var(--main-color);
-    border-color:  var(--main-selected-color);
-    color: var(--main-selected-color);
-}
-
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link:hover {
-    background: var(--main-selected-hover-color);
-}
-
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link:not(.p-disabled):focus {
-    box-shadow: none;
 }
 
 /* CAROUSEL */

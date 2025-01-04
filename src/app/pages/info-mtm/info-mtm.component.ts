@@ -15,9 +15,10 @@ import { environment } from '@environments/environment';
 import { Constants } from '@utils/constants';
 
 @Component({
-  selector: 'app-info-mtm',
-  templateUrl: './info-mtm.component.html',
-  styleUrls: ['./info-mtm.component.scss']
+    selector: 'app-info-mtm',
+    templateUrl: './info-mtm.component.html',
+    styleUrls: ['./info-mtm.component.scss'],
+    standalone: false
 })
 export class InfoMtmComponent implements OnInit {
 
@@ -31,8 +32,8 @@ export class InfoMtmComponent implements OnInit {
   infoMtM: InfoDeveloperModel = new InfoDeveloperModel();
 
   constructor(public translator: TranslateService,
-              private utilService: UtilsService,
-              private analyticService: AnalyticsService) {
+              private readonly utilService: UtilsService,
+              private readonly analyticService: AnalyticsService) {
   }
 
   ngOnInit(): void {

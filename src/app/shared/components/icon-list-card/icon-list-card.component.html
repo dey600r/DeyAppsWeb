@@ -12,7 +12,7 @@
                     <div class="grid padding-card">
                         <div class="col-12 md:col-5 lg:col-5 center" *ngIf="i%2 === 0">
                             <p-carousel [value]="data.images" [autoplayInterval]="(data.images.length > 1 ? 5000 : false)"
-                                circular="true" numVisible="1" numScroll="1">
+                                circular="true" numVisible="1" numScroll="1" showIndicators="false" showNavigators="false">
                                 <ng-template let-pict pTemplate="item">
                                     <div class="product-item">
                                         <div class="product-item-content">
@@ -32,7 +32,7 @@
                         </div>
                         <div class="col-12 md:col-5 lg:col-5 center" *ngIf="i%2 !== 0">
                             <p-carousel [value]="data.images" [autoplayInterval]="(data.images.length > 1 ? 5000 : false)"
-                                circular="true" numVisible="1" numScroll="1">
+                                circular="true" numVisible="1" numScroll="1" showIndicators="false" showNavigators="false">
                                 <ng-template let-pict pTemplate="item">
                                     <div class="product-item">
                                         <div class="product-item-content">

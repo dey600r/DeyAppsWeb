@@ -1,8 +1,21 @@
 :root {
     --main-color: #171717;
-    --main-selected-color: #2196F3;
+    --main-selected-color: var(--p-primary-color);
     --main-text-color: #b6b9bb;
     --main-selected-hover-color: #495057;
     --main-text-selected-hover-color: #f2f4f6;
     --main-btn-color-soft: #383839;
+
+    // PRIMENG
+    --p-primary-50: var(--p-teal-50);
+    --p-primary-100: var(--p-teal-100);
+    --p-primary-200: var(--p-teal-200);
+    --p-primary-300: var(--p-teal-300);
+    --p-primary-400: var(--p-teal-400);
+    --p-primary-500: var(--p-teal-500);
+    --p-primary-600: var(--p-teal-600);
+    --p-primary-700: var(--p-teal-700);
+    --p-primary-800: var(--p-teal-800);
+    --p-primary-900: var(--p-teal-900);
+    --p-primary-950:var(--p-teal-950);
 }

@@ -13,9 +13,10 @@ import { InfoIconModel } from '@models/index';
 import { Constants } from '@utils/constants';
 
 @Component({
-  selector: 'app-cookies',
-  templateUrl: './cookies.component.html',
-  styleUrls: ['./cookies.component.scss']
+    selector: 'app-cookies',
+    templateUrl: './cookies.component.html',
+    styleUrls: ['./cookies.component.scss'],
+    standalone: false
 })
 export class CookiesComponent implements OnInit {
 
@@ -26,8 +27,8 @@ export class CookiesComponent implements OnInit {
   linkDisableCookiesFirefox: string = '';
   linkDisableCookiesSafari: string = '';
 
-  constructor(private utilService: UtilsService,
-              private translator: TranslateService) {}
+  constructor(private readonly utilService: UtilsService,
+              private readonly translator: TranslateService) {}
 
   ngOnInit(): void {
     this.infoIconDeveloper = this.utilService.getIconDeveloper();

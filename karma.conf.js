@@ -13,7 +13,8 @@ module.exports = function (config) {
       require('karma-coverage'),
       require('karma-sonarqube-reporter'),
       require('karma-junit-reporter'),
-      require('@angular-devkit/build-angular/plugins/karma')
+      require('@angular-devkit/build-angular/plugins/karma'),
+      require('karma-spec-reporter')
     ],
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
@@ -37,12 +38,20 @@ module.exports = function (config) {
       outputDir : './coverage/junit/',
       outputFile: 'junit-report-test.xml'
     },
-    reporters: ['progress', 'kjhtml', 'sonarqube', 'coverage', 'junit'],
+    specReporter: {
+      maxLogLines: 5,         // limit number of lines logged per test
+      suppressErrorSummary: false,  // do not print error summary
+      suppressFailed: false,  // do not print information about failed tests
+      suppressPassed: false,  // do not print information about passed tests
+      suppressSkipped: false,  // do not print information about skipped tests
+      showSpecTiming: true // print the time elapsed for each spec
+    },
+    reporters: ['progress', 'kjhtml', 'sonarqube', 'coverage', 'junit', 'spec'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    //browsers: ['Chrome'],
+    // browsers: ['Chrome'],
     browsers: ['ChromeHeadlessNoSandbox'],
     customLaunchers: {
       ChromeHeadlessNoSandbox: {

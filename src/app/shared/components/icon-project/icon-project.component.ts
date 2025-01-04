@@ -4,9 +4,10 @@ import { InfoDeveloperModel, InfoProjectModel, InfoIconModel } from '@models/ind
 import cssVars from 'css-vars-ponyfill';
 
 @Component({
-  selector: 'app-icon-project',
-  templateUrl: './icon-project.component.html',
-  styleUrls: ['./icon-project.component.scss']
+    selector: 'app-icon-project',
+    templateUrl: './icon-project.component.html',
+    styleUrls: ['./icon-project.component.scss'],
+    standalone: false
 })
 export class IconProjectComponent {
 

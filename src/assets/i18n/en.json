@@ -34,7 +34,7 @@
         "titleNotifications": "Notificaciones",
         "descriptionNotifications": "The application allows you to define personalized maintenance for each of your vehicles. Based on these configurations, it notifies you how long and how many kilometers the parts of your vehicles have lived.",
         "titleTechnologiesUsed": "Technologies Used",
-        "descriptionTechnologiesUsed": "Multiplatform application for Android and Windows 10. Implemented with the Ionic 5.9 and Angular 13 frameworks. With the help of VS Code it has been possible to develop with the programming languages HTML5, CSS3, Typescript 4.5 and SQL. The best code quality is guaranteed by using SonarQube.",
+        "descriptionTechnologiesUsed": "Multiplatform application for Android and Windows 10. Implemented with the Ionic 8 and Angular 18 frameworks. With the help of VS Code it has been possible to develop with the programming languages HTML5, CSS3, Typescript 5 and SQL. The best code quality is guaranteed by using SonarQube.",
         "descriptionMtMFree": "The application is also available for free but with reduced functionality. Still with this version you can use the vehicle registration, operations, a wide range of configurations for maintenance and notifications. Using the complete application you could enjoy the calendar alerts, cost control and summary of maintenance and spare parts."
     },
     "POLICY_PRIVACY": {

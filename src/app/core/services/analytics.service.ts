@@ -15,7 +15,7 @@ import * as loginData from '@assets/firebase/login-firebase.json';
 })
 export class AnalyticsService {
 
-  constructor(private utilsService: UtilsService) {
+  constructor(private readonly utilsService: UtilsService) {
     this.initializeApp();
    }
 

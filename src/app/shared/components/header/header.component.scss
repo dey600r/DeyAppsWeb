@@ -44,6 +44,34 @@
     color: var(--main-text-color);
 }
 
+.icon-version button:hover {
+    background: var(--main-selected-hover-color);
+    color: var(--main-text-selected-hover-color);
+}
+
 .p-button:enabled:focus {
     box-shadow: none;
 }
+
+/* TAB MENU */
+
+
+.p-tablist-tab-list {
+    background: transparent !important;
+    height: 49px;
+}
+
+p-tabs p-tablist p-tab {
+    color: var(--main-text-color); 
+}
+
+p-tabs p-tablist p-tab.p-tab-active {
+    color: var(--main-selected-color) !important;
+}
+
+p-tabs p-tablist p-tab.p-ripple:hover {
+    background: var(--main-selected-hover-color);
+    border-radius: 8px 8px 0px 0px;
+    color: var(--main-text-selected-hover-color);
+}
+

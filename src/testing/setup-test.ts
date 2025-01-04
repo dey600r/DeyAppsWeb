@@ -1,12 +1,13 @@
-import { ChangeDetectorRef, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
 import { routes } from 'src/app/app-routing.module';
+import { RouterModule } from '@angular/router';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 // PRIMENG
 import { CarouselModule } from 'primeng/carousel';
-import { TabMenuModule } from 'primeng/tabmenu';
+import { TabsModule } from 'primeng/tabs';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
 import { TabViewModule } from 'primeng/tabview';
@@ -16,8 +17,11 @@ import { DialogModule } from 'primeng/dialog';
 // LIBRARIES
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura';
 // import * as firebaseFunctions from "firebase/analytics";
 
+// UTILS
 import { environment } from '@environments/environment';
 
 const createTranslateLoader = (http: HttpClient): TranslateHttpLoader => {
@@ -29,13 +33,12 @@ export class SetupTest {
   //   analytics: jasmine.createSpyObj(firebaseFunctions, ['getAnalytics'])
   // };
 
-  static config = {
+  private static readonly config = {
       imports: [
-        HttpClientModule,
-        RouterTestingModule.withRoutes(routes),
+        RouterModule.forRoot(routes),
         TooltipModule,
         CarouselModule,
-        TabMenuModule,
+        TabsModule,
         ButtonModule,
         TabViewModule,
         RadioButtonModule,
@@ -53,7 +56,20 @@ export class SetupTest {
       ],
       providers: [
         TranslateService,
-        ChangeDetectorRef
+        provideHttpClient(withInterceptorsFromDi()),
+        provideAnimationsAsync(), 
+        providePrimeNG({ 
+          theme: {
+              preset: Aura,
+              options: {
+                darkModeSelector: false,
+                cssLayer: {
+                  name: 'primeng',
+                  order: 'theme/variables, styles, primeng'
+              }
+            }
+          }
+        }),
         // { provide: firebaseFunctions, useValue: SetupTest.SpyConfig.analytics }
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA ]

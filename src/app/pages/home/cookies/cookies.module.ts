@@ -8,19 +8,13 @@ import { ComponentModule } from '@modules/component.module';
 
 import { PrimengModule } from '@shared/modules/primeng.module';
 
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { TranslateModule } from '@ngx-translate/core';
 
-@NgModule({
-  declarations: [ CookiesComponent ],
-  imports: [
-    PrimengModule,
-    CommonModule,
-    HttpClientModule,
-    CookiesRoutingModule,
-    ComponentModule,
-    TranslateModule.forChild()
-  ]
-})
+@NgModule({ declarations: [CookiesComponent], imports: [PrimengModule,
+        CommonModule,
+        CookiesRoutingModule,
+        ComponentModule,
+        TranslateModule.forChild()], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class CookiesModule { }

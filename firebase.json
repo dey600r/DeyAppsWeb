@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/DeyApps",
+    "public": "dist/DeyApps/browser",
     "ignore": [
       "firebase.json",
       "**/.*",

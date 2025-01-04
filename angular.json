@@ -32,9 +32,7 @@
             ],
             "styles": [
               "src/theme/variables.scss",
-              "src/styles.scss",
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/primeflex/primeflex.css"
+              "src/styles.scss"
             ],
             "scripts": [],
             "extractLicenses": false,
@@ -105,9 +103,7 @@
             ],
             "styles": [
               "src/theme/variables.scss",
-              "src/styles.scss",
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/primeflex/primeflex.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }

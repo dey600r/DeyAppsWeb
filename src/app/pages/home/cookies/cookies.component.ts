@@ -13,9 +13,10 @@ import { InfoIconModel } from '@models/index';
 import { Constants } from '@utils/constants';
 
 @Component({
-  selector: 'app-cookies',
-  templateUrl: './cookies.component.html',
-  styleUrls: ['./cookies.component.scss']
+    selector: 'app-cookies',
+    templateUrl: './cookies.component.html',
+    styleUrls: ['./cookies.component.scss'],
+    standalone: false
 })
 export class CookiesComponent implements OnInit {
 

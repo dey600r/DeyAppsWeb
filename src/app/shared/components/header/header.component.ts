@@ -10,10 +10,11 @@ import { environment } from '@environments/environment';
 import { filter } from 'rxjs';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class HeaderComponent implements OnInit {
 

@@ -1,4 +1,4 @@
-import { NgModule, Injector, APP_INITIALIZER } from '@angular/core';
+import { NgModule, Injector, inject, provideAppInitializer, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -50,27 +50,27 @@ import { Constants } from '@utils/constants';
         // or after 30 seconds (whichever comes first).
         registrationStrategy: 'registerWhenStable:30000'
     })], 
-    providers: [{
-        provide: APP_INITIALIZER,
-        useFactory: appInitializerFactory,
-        deps: [TranslateService, Injector],
-        multi: true
-    },
-    provideHttpClient(withInterceptorsFromDi()),
-    provideAnimationsAsync(), 
-    providePrimeNG({ 
-      theme: {
-          preset: Aura,
-          options: {
-            darkModeSelector: false,
-            cssLayer: {
-              name: 'primeng',
-              order: 'theme/variables, styles, primeng'
+    providers: [
+      provideAppInitializer(() => {
+        const initializerFn = (appInitializerFactory)(inject(TranslateService), inject(Injector));
+        return initializerFn();
+      }),
+      provideHttpClient(withInterceptorsFromDi()),
+      provideAnimationsAsync(), 
+      providePrimeNG({ 
+        theme: {
+            preset: Aura,
+            options: {
+              darkModeSelector: false,
+              cssLayer: {
+                name: 'primeng',
+                order: 'theme/variables, styles, primeng'
+            }
           }
         }
-      }
-    })
-] })
+      })
+    ]
+  })
 
 export class AppModule { }
 

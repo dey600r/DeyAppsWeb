@@ -3,9 +3,10 @@ import { Constants } from '@utils/constants';
 import { InfoCarouselModel, InfoTabModel, InfoThemeModel } from '@models/index';
 
 @Component({
-  selector: 'app-icon-tab',
-  templateUrl: './icon-tab.component.html',
-  styleUrls: ['./icon-tab.component.scss']
+    selector: 'app-icon-tab',
+    templateUrl: './icon-tab.component.html',
+    styleUrls: ['./icon-tab.component.scss'],
+    standalone: false
 })
 export class IconTabComponent implements OnInit {
   @Input() dataInfo: InfoTabModel[] = [];

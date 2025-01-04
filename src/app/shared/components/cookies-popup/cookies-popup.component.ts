@@ -9,9 +9,10 @@ import { UtilsService, AnalyticsService } from '@services/index';
 import { Constants } from '@utils/constants';
 
 @Component({
-  selector: 'app-cookies-popup',
-  templateUrl: './cookies-popup.component.html',
-  styleUrls: ['./cookies-popup.component.scss']
+    selector: 'app-cookies-popup',
+    templateUrl: './cookies-popup.component.html',
+    styleUrls: ['./cookies-popup.component.scss'],
+    standalone: false
 })
 export class CookiesPopupComponent {
 

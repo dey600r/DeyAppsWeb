@@ -9,14 +9,13 @@ import { UtilsService } from './utils.service';
 
 // UTILS
 import * as loginData from '@assets/firebase/login-firebase.json';
-// import * as loginData from '@assets/firebase/private-login-firebase.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnalyticsService {
 
-  constructor(private utilsService: UtilsService) {
+  constructor(private readonly utilsService: UtilsService) {
     this.initializeApp();
    }
 

@@ -7,9 +7,10 @@ import { AnalyticsService, UtilsService } from '@services/index';
 import { InfoIconModel } from '@models/index';
 
 @Component({
-  selector: 'app-mtm-privacy-policy',
-  templateUrl: './mtm-privacy-policy.component.html',
-  styleUrls: ['./mtm-privacy-policy.component.scss']
+    selector: 'app-mtm-privacy-policy',
+    templateUrl: './mtm-privacy-policy.component.html',
+    styleUrls: ['./mtm-privacy-policy.component.scss'],
+    standalone: false
 })
 export class MtmPrivacyPolicyComponent implements OnInit {
 

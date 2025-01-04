@@ -10,7 +10,7 @@ import { Constants } from '@utils/constants';
 })
 export class UtilsService {
 
-  constructor(private translator: TranslateService) { }
+  constructor(private readonly translator: TranslateService) { }
 
   joinPath(paths: string []): string {
     let result = '.';

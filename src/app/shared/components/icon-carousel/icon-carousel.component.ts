@@ -5,9 +5,10 @@ import { PictureModel, InfoCarouselModel } from '@models/index';
 import { Constants } from '@utils/constants';
 
 @Component({
-  selector: 'app-icon-carousel',
-  templateUrl: './icon-carousel.component.html',
-  styleUrls: ['./icon-carousel.component.scss']
+    selector: 'app-icon-carousel',
+    templateUrl: './icon-carousel.component.html',
+    styleUrls: ['./icon-carousel.component.scss'],
+    standalone: false
 })
 export class IconCarouselComponent implements OnChanges {
 

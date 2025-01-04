@@ -15,9 +15,10 @@ import { environment } from '@environments/environment';
 import { Constants } from '@utils/constants';
 
 @Component({
-  selector: 'app-info-mtm',
-  templateUrl: './info-mtm.component.html',
-  styleUrls: ['./info-mtm.component.scss']
+    selector: 'app-info-mtm',
+    templateUrl: './info-mtm.component.html',
+    styleUrls: ['./info-mtm.component.scss'],
+    standalone: false
 })
 export class InfoMtmComponent implements OnInit {
 

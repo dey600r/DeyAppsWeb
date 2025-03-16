@@ -1,20 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HomeRoutingModule } from './home-routing.module';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
-import { HomeComponent } from './home.component';
+import { ComponentModule, SharedModule } from '@modules/index';
 
-import { ComponentModule } from '@modules/component.module';
-
-import { PrimengModule } from '@shared/modules/primeng.module';
-
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-
-import { TranslateModule } from '@ngx-translate/core';
-
-@NgModule({ declarations: [HomeComponent], imports: [PrimengModule,
-        CommonModule,
-        HomeRoutingModule,
-        ComponentModule,
-        TranslateModule.forChild()], providers: [provideHttpClient(withInterceptorsFromDi())] })
+@NgModule({ 
+        imports: [
+                ComponentModule
+        ], 
+        exports: [
+                ComponentModule,
+                SharedModule
+        ],
+        schemas :[ CUSTOM_ELEMENTS_SCHEMA ]
+})
 export class HomeModule { }

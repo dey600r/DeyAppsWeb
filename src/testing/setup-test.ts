@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { routes } from 'src/app/app-routing.module';
+import { routes } from 'src/app/app.routes';
 import { RouterModule } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 

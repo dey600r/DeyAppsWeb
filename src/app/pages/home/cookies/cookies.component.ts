@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 
 // LIBRARIES
 import { TranslateService } from '@ngx-translate/core';
@@ -11,27 +11,26 @@ import { InfoIconModel } from '@models/index';
 
 // UTILS
 import { Constants } from '@utils/constants';
+import { HomeModule } from '../home.module';
 
 @Component({
     selector: 'app-cookies',
+    imports: [ HomeModule ],
+    standalone: true,
     templateUrl: './cookies.component.html',
-    styleUrls: ['./cookies.component.scss'],
-    standalone: false
+    styleUrls: ['./cookies.component.scss']
 })
 export class CookiesComponent implements OnInit {
 
-  infoIconDeveloper: InfoIconModel = new InfoIconModel();
+  // INJECTABLES
+  private readonly translator: TranslateService = inject(TranslateService);
 
   linkDisableCookiesGoogle: string = '';
   linkDisableCookiesEdge: string = '';
   linkDisableCookiesFirefox: string = '';
   linkDisableCookiesSafari: string = '';
 
-  constructor(private readonly utilService: UtilsService,
-              private readonly translator: TranslateService) {}
-
   ngOnInit(): void {
-    this.infoIconDeveloper = this.utilService.getIconDeveloper();
 
     if(this.translator.currentLang === Constants.LANGUAGE_EN) {
       this.linkDisableCookiesGoogle = Constants.URL_DISABLE_COOKIES_GOOGLE_EN;

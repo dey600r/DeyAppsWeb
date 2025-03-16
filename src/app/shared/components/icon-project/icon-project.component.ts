@@ -1,20 +1,27 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { InfoDeveloperModel, InfoProjectModel, InfoIconModel } from '@models/index';
 import cssVars from 'css-vars-ponyfill';
+
+import { SharedModule } from '@modules/shared.module';
+
+import { InfoDeveloperModel, InfoProjectModel, InfoIconModel } from '@models/index';
 
 @Component({
     selector: 'app-icon-project',
+    imports: [ SharedModule ],
+    standalone: true,
     templateUrl: './icon-project.component.html',
-    styleUrls: ['./icon-project.component.scss'],
-    standalone: false
+    styleUrls: ['./icon-project.component.scss']
 })
 export class IconProjectComponent {
+
+  // INJECTABLES
+  public router: Router = inject(Router);
 
   @Input() dataInfo: InfoProjectModel = new InfoProjectModel(
     '', new InfoDeveloperModel('', '', [new InfoIconModel()]));
 
-  constructor(public router: Router) {
+  constructor() {
     cssVars();
   }
 

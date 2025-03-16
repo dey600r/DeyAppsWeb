@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { SetupTest, MockTranslate } from '@testing/index';
 import { firstValueFrom } from 'rxjs';
 
-import { InfoMtmComponent } from './info-mtm.component';
+import { InfoAppComponent } from './info-app.component';
 import { IconDocComponent } from '@components/icon-doc/icon-doc.component';
 import { IconProjectComponent } from '@components/icon-project/icon-project.component';
 import { IconCarouselComponent } from '@components/icon-carousel/icon-carousel.component';
@@ -13,14 +13,14 @@ import { IconLinksComponent } from '@components/icon-links/icon-links.component'
 import { IconHeaderComponent } from '@components/icon-header/icon-header.component';
 import { CookiesPopupComponent } from '@components/cookies-popup/cookies-popup.component';
 
-describe('InfoMtmComponent', () => {
-  let component: InfoMtmComponent;
-  let fixture: ComponentFixture<InfoMtmComponent>;
+describe('InfoAppComponent', () => {
+  let component: InfoAppComponent;
+  let fixture: ComponentFixture<InfoAppComponent>;
   let translate: TranslateService;
 
   beforeEach(async() => {
     await TestBed.configureTestingModule(SetupTest.GetConfig([
-      InfoMtmComponent, IconDocComponent, IconProjectComponent, IconCarouselComponent, IconTabComponent,
+      InfoAppComponent, IconDocComponent, IconProjectComponent, IconCarouselComponent, IconTabComponent,
       IconListCardComponent, IconLinksComponent, IconHeaderComponent, CookiesPopupComponent
     ])).compileComponents();
     translate = TestBed.inject(TranslateService);
@@ -28,7 +28,7 @@ describe('InfoMtmComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InfoMtmComponent);
+    fixture = TestBed.createComponent(InfoAppComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -42,6 +42,22 @@ describe('InfoMtmComponent', () => {
     component.ngOnInit();
     fixture.detectChanges();
     expect(component).toBeTruthy();
+  });
+
+  it('should translate Motor Track Description - ES', () => {
+    const title = fixture.debugElement.nativeElement.querySelector('#cardTitleApp');
+    expect(title.innerHTML).toBe(MockTranslate.ES.COMMON.MTM_LARGE);
+    const desc = fixture.debugElement.nativeElement.querySelector('#cardDescriptionApp');
+    expect(desc.innerHTML).toBe(MockTranslate.ES.HOME.descriptionLargeProjects);
+  });
+
+  it('should translate Motor Track Description - EN', async () => {
+    await firstValueFrom(translate.use('en'));
+    fixture.detectChanges();
+    const title = fixture.debugElement.nativeElement.querySelector('#cardTitleApp');
+    expect(title.innerHTML).toBe(MockTranslate.EN.COMMON.MTM_LARGE);
+    const desc = fixture.debugElement.nativeElement.querySelector('#cardDescriptionApp');
+    expect(desc.innerHTML).toBe(MockTranslate.EN.HOME.descriptionLargeProjects);
   });
 
   afterAll(() => {

@@ -1,16 +1,23 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, inject, Input, OnChanges } from '@angular/core';
 import { UtilsService } from '@services/utils.service';
 
+import { SharedModule } from '@modules/shared.module';
+
+// UTILS
 import { PictureModel, InfoCarouselModel } from '@models/index';
 import { Constants } from '@utils/constants';
 
 @Component({
     selector: 'app-icon-carousel',
+    imports: [ SharedModule ],
+    standalone: true,
     templateUrl: './icon-carousel.component.html',
-    styleUrls: ['./icon-carousel.component.scss'],
-    standalone: false
+    styleUrls: ['./icon-carousel.component.scss']
 })
 export class IconCarouselComponent implements OnChanges {
+
+  // INJECTABLES
+  private readonly utilService: UtilsService = inject(UtilsService);
 
   @Input() dataInfo: InfoCarouselModel = new InfoCarouselModel(Constants.TYPE_APP_ANDROID, Constants.THEME_DARK);
 
@@ -18,9 +25,6 @@ export class IconCarouselComponent implements OnChanges {
   responsiveOptions: any = [];
   displayModal = false;
   selectedPicture: PictureModel = new PictureModel();
-
-  constructor(private readonly utilService: UtilsService) {
-  }
 
   ngOnChanges(): void {
     const pathImages: string = this.utilService.getPathMtMImages(this.dataInfo.type);

@@ -40,7 +40,12 @@
             "optimization": false,
             "namedChunks": true,
             "serviceWorker": "ngsw-config.json",
-            "browser": "src/main.ts"
+            "browser": "src/main.ts",
+            "server": "src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "src/server.ts"
+            }
           },
           "configurations": {
             "production": {

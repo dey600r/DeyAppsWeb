@@ -1,4 +1,4 @@
-<div *ngIf="!cookiesAccepted" class="main-container-cookies">
+<div [hidden]="cookiesAccepted" class="main-container-cookies">
     <div class="sub-container-cookies">
         <p class="p-cookies">{{ 'COOKIES.popupDescription' | translate }}</p>
         <button pButton type="button" class="p-button-rounded button-gray-soft" label="{{ 'COOKIES.agree' | translate }}" (click)="acceptCookies()"></button>

@@ -1,16 +1,22 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 
 import { environment } from '@environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 import { InfoIconModel, InfoThemeModel } from '@models/index';
 import { Constants } from '@utils/constants';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilsService {
 
-  constructor(private readonly translator: TranslateService) { }
+  isBrowser: boolean = false;
+
+  constructor(@Inject(PLATFORM_ID) private platformId,
+    private readonly translator: TranslateService) { 
+      this.isBrowser = isPlatformBrowser(platformId);
+    }
 
   joinPath(paths: string []): string {
     let result = '.';
@@ -41,11 +47,11 @@ export class UtilsService {
   }
 
   isCookiesAccepted(): boolean {
-    const accepted: string = localStorage.getItem(Constants.LOCAL_STORAGE_COOKIES_ACCEPTED);
+    const accepted: string = (this.isBrowser ? window.localStorage.getItem(Constants.LOCAL_STORAGE_COOKIES_ACCEPTED) : null);
     return (accepted !== null && accepted !== undefined && accepted === "true");
   }
 
   acceptCookies() {
-    localStorage.setItem(Constants.LOCAL_STORAGE_COOKIES_ACCEPTED, "true");
+    window.localStorage.setItem(Constants.LOCAL_STORAGE_COOKIES_ACCEPTED, "true");
   }
 }

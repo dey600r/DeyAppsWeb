@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AppModule } from './app.module';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -12,7 +12,9 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent {
   title = 'DeyApps';
 
-  constructor(private translate: TranslateService) {
+  private readonly translate: TranslateService = inject(TranslateService);
+
+  constructor() {
     this.translate.setDefaultLang('es');
     this.translate.use('es'); // Idioma inicial
   }

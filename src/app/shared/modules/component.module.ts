@@ -29,6 +29,6 @@ import { CookiesPopupComponent } from '@components/cookies-popup/cookies-popup.c
         IconLinksComponent,
         IconHeaderComponent,
         CookiesPopupComponent
-    ] 
+    ]
 })
 export class ComponentModule { }

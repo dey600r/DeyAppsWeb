@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { PrimengModule } from './primeng.module';
@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     PrimengModule,
+    NgOptimizedImage
   ],
   exports: [
     CommonModule,

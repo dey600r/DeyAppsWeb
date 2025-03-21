@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnChanges } from '@angular/core';
+import { AfterViewInit, Component, inject, Input, OnChanges } from '@angular/core';
 import { UtilsService } from '@services/utils.service';
 
 import { SharedModule } from '@modules/shared.module';
@@ -14,8 +14,8 @@ import { Constants } from '@utils/constants';
     templateUrl: './icon-carousel.component.html',
     styleUrls: ['./icon-carousel.component.scss']
 })
-export class IconCarouselComponent implements OnChanges {
-
+export class IconCarouselComponent implements OnChanges, AfterViewInit {
+  
   // INJECTABLES
   private readonly utilService: UtilsService = inject(UtilsService);
 
@@ -26,18 +26,21 @@ export class IconCarouselComponent implements OnChanges {
   displayModal = false;
   selectedPicture: PictureModel = new PictureModel();
 
+  ngAfterViewInit(): void {
+    this.ngOnChanges();
+  }
+
   ngOnChanges(): void {
     const pathImages: string = this.utilService.getPathMtMImages(this.dataInfo.type);
     this.picturesApp = [];
     for (let i = 1; i < 12; i++) {
-      this.picturesApp = [...this.picturesApp, {
+      this.picturesApp .push({
         name: `Image${i}`,
         url: this.utilService.joinPath([pathImages, this.dataInfo.theme, `Capture${i}.png`]),
         type: this.dataInfo.type,
         app: 'mtm'
-      }];
+      });
     }
-
     this.calculateNumVisibleImages();
   }
 

@@ -1,11 +1,12 @@
 import { ChangeDetectorRef, Component, inject, Input, OnInit } from '@angular/core';
 import { Constants } from '@utils/constants';
 import { InfoCarouselModel, InfoTabModel, InfoThemeModel } from '@models/index';
-import { ComponentModule, SharedModule } from '@shared/modules/index';
+import { SharedModule } from '@shared/modules/index';
+import { IconCarouselComponent } from '../icon-carousel/icon-carousel.component';
 
 @Component({
     selector: 'app-icon-tab',
-    imports: [ SharedModule, ComponentModule ],
+    imports: [ SharedModule, IconCarouselComponent ],
     standalone: true,
     templateUrl: './icon-tab.component.html',
     styleUrls: ['./icon-tab.component.scss']

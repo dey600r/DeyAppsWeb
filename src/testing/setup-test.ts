@@ -1,8 +1,8 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+import { HttpClient, provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { routes } from 'src/app/app.routes';
-import { RouterModule } from '@angular/router';
+import { provideRouter, RouterModule } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 // PRIMENG
@@ -23,6 +23,7 @@ import Aura from '@primeng/themes/aura';
 
 // UTILS
 import { environment } from '@environments/environment';
+import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
 const createTranslateLoader = (http: HttpClient): TranslateHttpLoader => {
   return new TranslateHttpLoader(http, environment.pathTranslate, '.json');
@@ -35,7 +36,6 @@ export class SetupTest {
 
   private static readonly config = {
       imports: [
-        RouterModule.forRoot(routes),
         TooltipModule,
         CarouselModule,
         TabsModule,
@@ -43,21 +43,25 @@ export class SetupTest {
         TabViewModule,
         RadioButtonModule,
         DialogModule,
-        FormsModule,
-        TranslateModule.forRoot({
-          loader: {
-            provide: TranslateLoader,
-            useFactory: (createTranslateLoader),
-            deps: [HttpClient]
-          }
-        })
+        FormsModule
       ],
       declarations: [
       ],
       providers: [
-        TranslateService,
-        provideHttpClient(withInterceptorsFromDi()),
-        provideAnimationsAsync(), 
+        provideRouter(routes),
+        provideClientHydration(withEventReplay()), 
+        provideZoneChangeDetection({ eventCoalescing: true }), 
+        provideHttpClient(withFetch(), withInterceptorsFromDi()),
+        provideAnimationsAsync(),
+        importProvidersFrom([
+          TranslateModule.forRoot({
+            loader: {
+              provide: TranslateLoader,
+              useFactory: (createTranslateLoader),
+              deps: [HttpClient]
+            }
+          }),
+        ]),
         providePrimeNG({ 
           theme: {
               preset: Aura,
@@ -69,7 +73,7 @@ export class SetupTest {
               }
             }
           }
-        }),
+        })
         // { provide: firebaseFunctions, useValue: SetupTest.SpyConfig.analytics }
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA ]
@@ -77,13 +81,13 @@ export class SetupTest {
 
   public static GetConfig(component: any): any {
     let result: any = SetupTest.config;
-    result.declarations = [component];
+    result.imports = [component];
     return result;
   }
 
   public static GetConfigs(components: any[]): any {
     let result: any = SetupTest.config;
-    result.declarations = components;
+    result.imports = components;
     return result;
   }
 }

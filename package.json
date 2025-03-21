@@ -1,7 +1,7 @@
 {
   "name": "deyapps",
-  "version": "1.5.0",
-  "dateVersion": "2025-01-04",
+  "version": "1.5.1",
+  "dateVersion": "2025-03-21",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "eslint -c eslint.config.mjs",
     "e2e": "ng e2e",
-    "deploy": "ng build --configuration=production && firebase deploy",
+    "deploy": "ng build --configuration=firebase && firebase deploy",
     "sonarqube": "ng test --code-coverage --watch=false && sonar-scanner.bat",
     "depcheck": "depcheck",
     "checklibs": "npm-check",

@@ -3,12 +3,6 @@ import { Component, inject, OnInit } from '@angular/core';
 // LIBRARIES
 import { TranslateService } from '@ngx-translate/core';
 
-// SERVICES
-import { UtilsService } from '@services/index';
-
-// MODELS
-import { InfoIconModel } from '@models/index';
-
 // UTILS
 import { Constants } from '@utils/constants';
 import { HomeModule } from '../home.module';

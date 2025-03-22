@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, importProvidersFrom, provideZoneChangeDetection
 import { HttpClient, provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { routes } from 'src/app/app.routes';
-import { provideRouter, RouterModule } from '@angular/router';
+import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 // PRIMENG
@@ -15,7 +15,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { DialogModule } from 'primeng/dialog';
 
 // LIBRARIES
-import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';

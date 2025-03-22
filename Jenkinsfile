@@ -18,7 +18,7 @@ node {
   }
   stage('Build Prod') { 
     nodejs(nodeJSInstallationName: 'NodeJS') {
-      sh 'ng build --configuration=production'
+      sh 'ng build --configuration=firebase'
     }
   }
   stage('Deploy') {

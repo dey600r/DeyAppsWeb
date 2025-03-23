@@ -1,25 +1,23 @@
 # Stage 1: Compile and Build angular codebase
+FROM node:20.13.1-alpine3.19 AS build
 
-FROM node:18.16.0-alpine3.17 as build
-
+USER node
 WORKDIR /app
 RUN echo "INSTALL LIBRARIES"
-COPY package*.json ./
+COPY --chown=node package*.json ./
 RUN npm install
 
 RUN echo "BUILD PROD"
 COPY --chown=node . .
 RUN npm run build --prod
 
-# Stage 2: Serve app with nginx server
-FROM nginxinc/nginx-unprivileged
+# Stage 2: Serve app with angular node ssr
+FROM node:20.13.1-alpine3.19
 
-#COPY nginx.conf /etc/nginx/nginx.conf
-COPY nginx-def.conf /etc/nginx/conf.d/default.conf
+USER node
+RUN mkdir -p /home/node/app
 
-#WORKDIR /code
-
-COPY --from=build /app/dist/DeyApps/ /usr/share/nginx/html
-
-EXPOSE 8080:8080
-CMD ["nginx", "-g", "daemon off;"]
+WORKDIR /home/node/app
+COPY --from=build /app/dist/DeyApps/ ./
+EXPOSE 4000
+CMD ["node", "server/server.mjs"]

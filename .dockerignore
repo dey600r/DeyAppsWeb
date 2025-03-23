@@ -1,0 +1,9 @@
+./.vscode
+./.angular
+./.firebase
+./.scannerwork
+./coverage
+./Docker
+./node_modules
+./dist
+./yaml

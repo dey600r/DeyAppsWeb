@@ -12,7 +12,7 @@ spec:
     kind: Service
     name: svc-dey-apps-web-git-manual
   port:
-    targetPort: 8080-tcp
+    targetPort: 4000-tcp
   tls:
     termination: edge
     wildcardPolicy: None

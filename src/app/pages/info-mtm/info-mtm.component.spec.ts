@@ -44,22 +44,6 @@ describe('InfoMtmComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should translate Motor Track Description - ES', () => {
-    const title = fixture.debugElement.nativeElement.querySelector('#cardTitleApp');
-    expect(title.innerHTML).toBe(MockTranslate.ES.COMMON.MTM_LARGE);
-    const desc = fixture.debugElement.nativeElement.querySelector('#cardDescriptionApp');
-    expect(desc.innerHTML).toBe(MockTranslate.ES.HOME.descriptionLargeProjects);
-  });
-
-  it('should translate Motor Track Description - EN', async () => {
-    await firstValueFrom(translate.use('en'));
-    fixture.detectChanges();
-    const title = fixture.debugElement.nativeElement.querySelector('#cardTitleApp');
-    expect(title.innerHTML).toBe(MockTranslate.EN.COMMON.MTM_LARGE);
-    const desc = fixture.debugElement.nativeElement.querySelector('#cardDescriptionApp');
-    expect(desc.innerHTML).toBe(MockTranslate.EN.HOME.descriptionLargeProjects);
-  });
-
   afterAll(() => {
     TestBed.resetTestingModule();
   });

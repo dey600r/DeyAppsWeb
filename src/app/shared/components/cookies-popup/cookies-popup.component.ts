@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { Location } from '@angular/common';
-import { Router, Event } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { SharedModule } from '@modules/shared.module';
 
 // SERVICES
 import { UtilsService, AnalyticsService } from '@services/index';
@@ -10,25 +11,22 @@ import { Constants } from '@utils/constants';
 
 @Component({
     selector: 'app-cookies-popup',
+    imports: [ SharedModule ],
+    standalone: true,
     templateUrl: './cookies-popup.component.html',
-    styleUrls: ['./cookies-popup.component.scss'],
-    standalone: false
+    styleUrls: ['./cookies-popup.component.scss']
 })
 export class CookiesPopupComponent {
 
-  routeDeyAppsCookies: string = Constants.getRouteCookies();
-  cookiesAccepted: boolean = false;
+  // INJECTABLES
+  private readonly router: Router = inject(Router);
+  private readonly utilsService: UtilsService = inject(UtilsService);
+  private readonly analyticService: AnalyticsService = inject(AnalyticsService);
 
-  constructor(private readonly location: Location,
-              private readonly router: Router,
-              private readonly utilsService: UtilsService,
-              private readonly analyticService: AnalyticsService) {
-    this.router.events.subscribe((event: Event) => {
-      if(this.location.path().includes(Constants.ROUTE_HOME_COOKIES)) 
-        this.cookiesAccepted = true;
-      else
-        this.checkCookies();
-    });
+  cookiesAccepted: boolean = true;
+
+  constructor() {
+    this.checkCookies();
   }
 
   acceptCookies() {
@@ -42,6 +40,6 @@ export class CookiesPopupComponent {
   }
 
   navigateToCookies() {
-    this.router.navigate([this.routeDeyAppsCookies]);
+    this.router.navigate([Constants.getRouteCookies()]);
   }
 }

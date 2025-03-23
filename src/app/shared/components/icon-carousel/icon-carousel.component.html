@@ -1,16 +1,17 @@
 <p-carousel [value]="picturesApp" autoplayInterval="3000" circular="true" numVisible="1" numScroll="1" [responsiveOptions]="responsiveOptions">
-    <ng-template let-pict pTemplate="item">
+    <ng-template let-pict #item>
         <div class="product-item">
             <div class="product-item-content">
                 <div class="mb-3" (click)="showModalDialog(pict)">
-                    <img [alt]="pict.name" [src]="pict.url" class="product-image">
+                    <img [alt]="pict.name" [srcset]="pict.url" loading="lazy" class="product-image">
                 </div>
             </div>  
         </div>
     </ng-template>
 </p-carousel>
 
-<p-dialog [showHeader]="true" [closable]="true" [(visible)]="displayModal" [breakpoints]="{'960px': '510px', '640px': '310px'}"  [baseZIndex]="10000">
+<p-dialog [showHeader]="true" [closable]="true" [modal]="true" [(visible)]="displayModal" [dismissableMask]="true"
+[breakpoints]="{'960px': '510px', '640px': '310px'}"  [baseZIndex]="10000">
     <img [ngClass]="{ 'img-android': selectedPicture.type === 'android', 'img-windows': selectedPicture.type === 'windows'}" 
-        [alt]="selectedPicture.name" [src]="selectedPicture.url" class="product-image">
+        [alt]="selectedPicture.name" [srcset]="selectedPicture.url" loading="lazy" class="product-image">
 </p-dialog>

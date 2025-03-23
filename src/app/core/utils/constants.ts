@@ -1,16 +1,27 @@
 export class Constants {
   static readonly ROUTE_HOME = 'home';
-  static readonly ROUTE_HOME_COOKIES = 'cookies';
+  static readonly ROUTE_INFO_DEV = 'infodev';
+  static readonly ROUTE_COOKIES = 'cookies';
+  static readonly ROUTE_INFO_APP = 'infoapp';
   static readonly ROUTE_INFO_MTM = 'infomtm';
   static readonly ROUTE_MTM_PRIVACIY_POLICY = 'privacypolicy';
+
+  static getRouteInfoDev(): string {
+    return `/${this.ROUTE_HOME}/${this.ROUTE_INFO_DEV}`;
+  }
+
+  static getRouteCookies(): string {
+    return `/${this.ROUTE_HOME}/${this.ROUTE_COOKIES}`;
+  }
+  
+  static getRouteMTM(): string {
+    return `/${this.ROUTE_INFO_MTM}/${this.ROUTE_INFO_APP}`;
+  }
 
   static getRoutePrivacyPolicy(): string {
     return `/${this.ROUTE_INFO_MTM}/${this.ROUTE_MTM_PRIVACIY_POLICY}`;
   }
 
-  static getRouteCookies(): string {
-    return `/${this.ROUTE_HOME}/${this.ROUTE_HOME_COOKIES}`;
-  }
 
   static readonly LANGUAGE_EN = 'en';
   static readonly LANGUAGE_ES = 'es';

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, Event } from '@angular/router';
+
+import { SharedModule } from '@modules/shared.module';
 
 // LIBRARIES
 import cssVars from 'css-vars-ponyfill';
@@ -10,16 +12,18 @@ import { Constants } from '@utils/constants';
 
 @Component({
     selector: 'app-footer',
+    imports: [ SharedModule ],
+    standalone: true,
     templateUrl: './footer.component.html',
-    styleUrls: ['./footer.component.scss'],
-    standalone: false
+    styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
 
-  selectedRoute: any = {}
+  // INJECTABLES
+  private readonly location: Location = inject(Location);
+  private readonly router: Router = inject(Router);
 
-  constructor(private readonly location: Location,
-              private readonly router: Router) {}
+  selectedRoute: any = {}
               
   ngOnInit(): void {
     cssVars();

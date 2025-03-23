@@ -53,11 +53,11 @@ describe('HeaderComponent', () => {
     expect(component.items[0].label).toEqual(MockTranslate.ES.COMMON.home);
     expect(component.items[0].icon).toEqual('pi pi-fw pi-home');
     expect(component.items[0].routerLink.length).toEqual(1);
-    expect(component.items[0].routerLink[0]).toEqual(Constants.ROUTE_HOME);
+    expect(component.items[0].routerLink[0]).toEqual(Constants.getRouteInfoDev());
     expect(component.items[1].label).toEqual(MockTranslate.ES.COMMON.infoMtm);
     expect(component.items[1].icon).toEqual('icon-mtm');
     expect(component.items[1].routerLink.length).toEqual(1);
-    expect(component.items[1].routerLink[0]).toEqual(Constants.ROUTE_INFO_MTM);
+    expect(component.items[1].routerLink[0]).toEqual(Constants.getRouteMTM());
   });
 
   afterAll(() => {

@@ -1,14 +1,21 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, Input, OnInit } from '@angular/core';
 import { Constants } from '@utils/constants';
 import { InfoCarouselModel, InfoTabModel, InfoThemeModel } from '@models/index';
+import { SharedModule } from '@shared/modules/index';
+import { IconCarouselComponent } from '../icon-carousel/icon-carousel.component';
 
 @Component({
     selector: 'app-icon-tab',
+    imports: [ SharedModule, IconCarouselComponent ],
+    standalone: true,
     templateUrl: './icon-tab.component.html',
-    styleUrls: ['./icon-tab.component.scss'],
-    standalone: false
+    styleUrls: ['./icon-tab.component.scss']
 })
 export class IconTabComponent implements OnInit {
+  
+  // INJECTABLE
+  private readonly detector: ChangeDetectorRef = inject(ChangeDetectorRef);
+  
   @Input() dataInfo: InfoTabModel[] = [];
 
   activeIndex = 0;
@@ -17,7 +24,6 @@ export class IconTabComponent implements OnInit {
   themes: InfoThemeModel[] = [];
   selectedTheme = '';
 
-  constructor(private readonly detector: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     if (this.dataInfo && this.dataInfo.length > 0) {

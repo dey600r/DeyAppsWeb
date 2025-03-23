@@ -35,7 +35,7 @@ describe('CookiesPopupComponent', () => {
   });
 
   it('should define route to cookies page', () => {
-    expect(component.routeDeyAppsCookies).toEqual(`/${Constants.ROUTE_HOME}/${Constants.ROUTE_HOME_COOKIES}`);
+    expect(Constants.getRouteCookies()).toEqual(`/${Constants.ROUTE_HOME}/${Constants.ROUTE_COOKIES}`);
   });
 
   it('shouldnt accept the cookies', () => {

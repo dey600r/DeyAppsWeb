@@ -55,6 +55,13 @@
 
 /* TAB MENU */
 
+.p-tab {
+    display: flex;
+}
+
+.p-tablist {
+    background: none;
+}
 
 .p-tablist-tab-list {
     background: transparent !important;

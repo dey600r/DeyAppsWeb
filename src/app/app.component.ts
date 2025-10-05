@@ -15,7 +15,8 @@ export class AppComponent {
   private readonly translate: TranslateService = inject(TranslateService);
 
   constructor() {
-    this.translate.setDefaultLang('es');
-    this.translate.use('es'); // Idioma inicial
+    let userLang = navigator.language.split('-')[0];
+    userLang = /(es|en)/gi.test(userLang) ? userLang : 'en';
+    this.translate.use(userLang);
   }
 }

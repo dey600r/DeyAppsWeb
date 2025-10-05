@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, provideZoneChangeDetection } from '@angular/core';
 import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { routes } from 'src/app/app.routes';
@@ -13,7 +13,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { DialogModule } from 'primeng/dialog';
 
 // LIBRARIES
-import { TranslateModule } from '@ngx-translate/core';
+import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
@@ -43,8 +43,10 @@ export class SetupTest {
         provideRouter(routes),
         provideZoneChangeDetection({ eventCoalescing: true }), 
         provideHttpClient(withFetch(), withInterceptorsFromDi()),
-        importProvidersFrom([TranslateModule.forRoot()]),
-        provideTranslateHttpLoader({ prefix: environment.pathTranslate, suffix: '.json'}),
+        provideTranslateService({
+          loader: provideTranslateHttpLoader({ prefix: environment.pathTranslate, suffix: '.json' }),
+          fallbackLang: 'es'
+        }),
         providePrimeNG({ 
           theme: {
               preset: Aura,

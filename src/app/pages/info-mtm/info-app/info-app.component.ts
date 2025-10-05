@@ -90,13 +90,13 @@ export class InfoAppComponent implements OnInit, AfterViewInit {
 
   loadLinks() {
     const imgGooglePlay: string = this.utilService.joinPath(
-      [environment.pathOthers, this.translator.currentLang, 'google_play.png']);
+      [environment.pathOthers, this.translator.getCurrentLang(), 'google_play.png']);
       const imgMicrosoftStore: string = this.utilService.joinPath(
-      [environment.pathOthers, this.translator.currentLang, 'microsoft_store.png']);
+      [environment.pathOthers, this.translator.getCurrentLang(), 'microsoft_store.png']);
       const imgWebVersion: string = this.utilService.joinPath(
-        [environment.pathOthers, this.translator.currentLang, 'web_version.png']);
+        [environment.pathOthers, this.translator.getCurrentLang(), 'web_version.png']);
         
-        if (this.translator.currentLang === Constants.LANGUAGE_EN) {
+        if (this.translator.getCurrentLang() === Constants.LANGUAGE_EN) {
           this.infoLinksMtm = [
             new InfoBaseIconModel(imgGooglePlay, Constants.URL_MTM_ANDROID_EN, Constants.URL_MTM_ANDROID_EN),
             new InfoBaseIconModel(imgMicrosoftStore, Constants.URL_MTM_WINDOWS_EN, Constants.URL_MTM_WINDOWS_EN),

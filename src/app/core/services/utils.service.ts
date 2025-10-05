@@ -1,4 +1,4 @@
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { inject, Inject, Injectable, PLATFORM_ID } from '@angular/core';
 
 import { environment } from '@environments/environment';
 import { TranslateService } from '@ngx-translate/core';
@@ -11,10 +11,12 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class UtilsService {
 
+  // INJECTIONS
+  private readonly translator: TranslateService = inject(TranslateService);
+
   isBrowser: boolean = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId,
-    private readonly translator: TranslateService) { 
+  constructor(@Inject(PLATFORM_ID) private readonly platformId) { 
       this.isBrowser = isPlatformBrowser(platformId);
     }
 
@@ -27,7 +29,7 @@ export class UtilsService {
   }
 
   getPathMtMImages(type: string): string {
-    return this.joinPath([environment.pathMtM, this.translator.currentLang, type]);
+    return this.joinPath([environment.pathMtM, this.translator.getCurrentLang(), type]);
   }
 
   getMtMThemes(): InfoThemeModel[] {

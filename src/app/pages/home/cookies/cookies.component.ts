@@ -26,7 +26,7 @@ export class CookiesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(this.translator.currentLang === Constants.LANGUAGE_EN) {
+    if(this.translator.getCurrentLang() === Constants.LANGUAGE_EN) {
       this.linkDisableCookiesGoogle = Constants.URL_DISABLE_COOKIES_GOOGLE_EN;
       this.linkDisableCookiesEdge = Constants.URL_DISABLE_COOKIES_EDGE_EN;
       this.linkDisableCookiesFirefox = Constants.URL_DISABLE_COOKIES_FIREFOX_EN;

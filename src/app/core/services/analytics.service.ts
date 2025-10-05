@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 
 // LIBRARIES
 import { initializeApp } from "firebase/app";
@@ -15,7 +15,10 @@ import * as loginData from '@assets/firebase/login-firebase.json';
 })
 export class AnalyticsService {
 
-  constructor(private readonly utilsService: UtilsService) {
+  // INJECTIONS
+  private readonly utilsService: UtilsService = inject(UtilsService);
+
+  constructor() {
     this.initializeApp();
    }
 
